@@ -1,5 +1,5 @@
 ﻿const API_URL =
-    'https://script.google.com/macros/s/AKfycbz2KzFmxU6uAJeRbRNCSUI4MbfySrXqY_8IH6CvLQH0AmRm4-yqr6Ejfe6uXtaTIkBR/exec';
+    'https://script.google.com/macros/s/AKfycbxY5x3Ixl0vcAmaj2LN0UfOml9ZTXrQTn_3vfFdNmHs-N_9o7wmlDvoy2WUSHwvF1yM/exec';
 
 let base64FileData = '';
 let uploadedFileName = '';
@@ -254,7 +254,8 @@ async function pollRequestResult(
  */
 async function handleFormSubmit(event) {
     event.preventDefault();
-
+    //showPageLoader("در حال جستجو...");
+    showPageLoader("در حال جستجو...");
     if (
         typeof validateForm === 'function' &&
         !validateForm()
@@ -318,12 +319,14 @@ async function handleFormSubmit(event) {
 
         currentImageUrl =
             result.imageUrl || currentImageUrl;
-
+        hidePageLoader();
         showAlert(
             result.message ||
             'اطلاعات با موفقیت ثبت شد.',
             'success'
         );
+        toast.success("اطلاعات شرکت‌کننده با موفقیت ثبت شد.");
+
 
         resetForm(form);
     } catch (error) {

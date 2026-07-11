@@ -67,9 +67,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\api.js" />
+    <Content Include="assets\config.js" />
+    <Content Include="assets\pageloader.js" />
     <Content Include="assets\participant-form.js" />
+    <Content Include="assets\participants\form.js" />
+    <Content Include="assets\participants\list.js" />
     <Content Include="assets\staticassets.js" />
     <Content Include="assets\layout.js" />
+    <Content Include="assets\toast.js" />
     <Content Include="cdn-cgi\speculation.html" />
     <Content Include="core\dist\error-tracking\chunk-ids.mjs" />
     <Content Include="core\dist\error-tracking\coercers\dom-exception-coercer.mjs" />
