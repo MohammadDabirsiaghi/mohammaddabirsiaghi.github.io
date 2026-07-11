@@ -1,0 +1,477 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CFAAF6A1-0D9E-444D-91E2-7263C963D951}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JafariBusinessCoachingPanel</RootNamespace>
+    <AssemblyName>JafariBusinessCoachingPanel</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44314</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\participant-form.js" />
+    <Content Include="assets\staticassets.js" />
+    <Content Include="assets\layout.js" />
+    <Content Include="cdn-cgi\speculation.html" />
+    <Content Include="core\dist\error-tracking\chunk-ids.mjs" />
+    <Content Include="core\dist\error-tracking\coercers\dom-exception-coercer.mjs" />
+    <Content Include="core\dist\error-tracking\coercers\error-coercer.mjs" />
+    <Content Include="core\dist\error-tracking\coercers\error-event-coercer.mjs" />
+    <Content Include="core\dist\error-tracking\coercers\event-coercer.mjs" />
+    <Content Include="core\dist\error-tracking\coercers\object-coercer.mjs" />
+    <Content Include="core\dist\error-tracking\coercers\primitive-coercer.mjs" />
+    <Content Include="core\dist\error-tracking\coercers\promise-rejection-event.mjs" />
+    <Content Include="core\dist\error-tracking\coercers\string-coercer.mjs" />
+    <Content Include="core\dist\error-tracking\coercers\utils.mjs" />
+    <Content Include="core\dist\error-tracking\error-properties-builder.mjs" />
+    <Content Include="core\dist\error-tracking\exception-steps.mjs" />
+    <Content Include="core\dist\error-tracking\parsers\base.mjs" />
+    <Content Include="core\dist\error-tracking\parsers\chrome.mjs" />
+    <Content Include="core\dist\error-tracking\parsers\gecko.mjs" />
+    <Content Include="core\dist\error-tracking\parsers\index.mjs" />
+    <Content Include="core\dist\error-tracking\parsers\safari.mjs" />
+    <Content Include="core\dist\error-tracking\types.mjs" />
+    <Content Include="core\dist\featureFlagUtils.mjs" />
+    <Content Include="core\dist\gzip.mjs" />
+    <Content Include="core\dist\logs\index.mjs" />
+    <Content Include="core\dist\logs\logs-utils.mjs" />
+    <Content Include="core\dist\surveys\events.mjs" />
+    <Content Include="core\dist\surveys\translations.mjs" />
+    <Content Include="core\dist\surveys\validation.mjs" />
+    <Content Include="core\dist\types.mjs" />
+    <Content Include="core\dist\utils\bot-detection.mjs" />
+    <Content Include="core\dist\utils\bucketed-rate-limiter.mjs" />
+    <Content Include="core\dist\utils\index.mjs" />
+    <Content Include="core\dist\utils\number-utils.mjs" />
+    <Content Include="core\dist\utils\string-utils.mjs" />
+    <Content Include="core\dist\utils\type-utils.mjs" />
+    <Content Include="core\dist\utils\user-agent-utils.mjs" />
+    <Content Include="dist\css\dist\css\tabler-marketing.rtl.css" />
+    <Content Include="dist\css\dist\css\tabler-themes.rtl.css" />
+    <Content Include="dist\css\dist\css\tabler-vendors.rtl.css" />
+    <Content Include="dist\css\dist\css\tabler.rtl.css" />
+    <Content Include="dist\css\tabler-flags.css" />
+    <Content Include="dist\css\tabler-flags.rtl.min.css" />
+    <Content Include="dist\css\tabler-marketing.css" />
+    <Content Include="dist\css\tabler-marketing.rtl.min.css" />
+    <Content Include="dist\css\tabler-payments.css" />
+    <Content Include="dist\css\tabler-payments.rtl.min.css" />
+    <Content Include="dist\css\tabler-socials.css" />
+    <Content Include="dist\css\tabler-socials.rtl.min.css" />
+    <Content Include="dist\css\tabler-themes.css" />
+    <Content Include="dist\css\tabler-themes.rtl.min.css" />
+    <Content Include="dist\css\tabler-vendors.css" />
+    <Content Include="dist\css\tabler-vendors.rtl.min.css" />
+    <Content Include="dist\css\tabler.css" />
+    <Content Include="dist\css\tabler.rtl.min.css" />
+    <Content Include="dist\img\flags\br.svg" />
+    <Content Include="dist\img\flags\de.svg" />
+    <Content Include="dist\img\flags\gb.svg" />
+    <Content Include="dist\img\flags\pl.svg" />
+    <Content Include="dist\img\flags\us.svg" />
+    <Content Include="dist\js\tabler-theme.min.js" />
+    <Content Include="dist\js\tabler.min.js" />
+    <Content Include="dist\libs\apexcharts\dist\apexcharts.min.js" />
+    <Content Include="dist\libs\jsvectormap\dist\jsvectormap.css" />
+    <Content Include="dist\libs\jsvectormap\dist\jsvectormap.min.js" />
+    <Content Include="dist\libs\jsvectormap\dist\maps\world-merc.js" />
+    <Content Include="dist\libs\jsvectormap\dist\maps\world.js" />
+    <Content Include="eat\api\surveys\index.html" />
+    <Content Include="eat\array\phc_Ui9ZadLvY1XWtP5iiD3LWDZoXAGYsz6yNvTAvE7wSwn\config.js" />
+    <Content Include="eat\e\index.html" />
+    <Content Include="eat\flags\index.html" />
+    <Content Include="eat\static\array.js" />
+    <Content Include="eat\static\dead-clicks-autocapture.js" />
+    <Content Include="eat\static\exception-autocapture.js" />
+    <Content Include="eat\static\logs.js" />
+    <Content Include="eat\static\surveys.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\vazirmatn\Vazirmatn-font-face.css" />
+    <Content Include="members.html" />
+    <Content Include="Index1.html" />
+    <Content Include="js\demo.js" />
+    <Content Include="js\src\autosize.js" />
+    <Content Include="js\src\countup.js" />
+    <Content Include="js\src\dropdown.js" />
+    <Content Include="js\src\input-mask.js" />
+    <Content Include="js\src\popover.js" />
+    <Content Include="js\src\switch-icon.js" />
+    <Content Include="js\src\tab.js" />
+    <Content Include="js\src\tabler.js" />
+    <Content Include="js\src\toast.js" />
+    <Content Include="js\src\tooltip.js" />
+    <Content Include="js\tabler-theme.js" />
+    <Content Include="index.html" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\createPopper.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\dom-utils\contains.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\dom-utils\getBoundingClientRect.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\dom-utils\getClippingRect.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\dom-utils\getCompositeRect.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\dom-utils\getComputedStyle.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\dom-utils\getDocumentElement.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\dom-utils\getDocumentRect.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\dom-utils\getHTMLElementScroll.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\dom-utils\getLayoutRect.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\dom-utils\getNodeName.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\dom-utils\getNodeScroll.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\dom-utils\getOffsetParent.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\dom-utils\getParentNode.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\dom-utils\getScrollParent.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\dom-utils\getViewportRect.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\dom-utils\getWindow.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\dom-utils\getWindowScroll.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\dom-utils\getWindowScrollBarX.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\dom-utils\instanceOf.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\dom-utils\isLayoutViewport.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\dom-utils\isScrollParent.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\dom-utils\isTableElement.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\dom-utils\listScrollParents.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\enums.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\modifiers\applyStyles.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\modifiers\arrow.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\modifiers\computeStyles.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\modifiers\eventListeners.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\modifiers\flip.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\modifiers\hide.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\modifiers\offset.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\modifiers\popperOffsets.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\modifiers\preventOverflow.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\popper-lite.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\popper.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\utils\computeAutoPlacement.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\utils\computeOffsets.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\utils\debounce.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\utils\detectOverflow.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\utils\expandToHashMap.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\utils\getAltAxis.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\utils\getBasePlacement.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\utils\getFreshSideObject.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\utils\getMainAxisFromPlacement.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\utils\getOppositePlacement.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\utils\getOppositeVariationPlacement.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\utils\getVariation.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\utils\math.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\utils\mergeByName.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\utils\mergePaddingObject.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\utils\orderModifiers.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\utils\rectToClientRect.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\utils\userAgent.js" />
+    <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\utils\within.js" />
+    <Content Include="node_modules\pnpm\bootstrap%405.3.7_%40popperjs+core%402.11.8\node_modules\bootstrap\dist\js\bootstrap.esm.js" />
+    <Content Include="Participant\create.html" />
+    <Content Include="preview\css\demo.css" />
+    <Content Include="preview\css\demo.min.css" />
+    <Content Include="preview\css\dist\preview\css\demo.css" />
+    <Content Include="preview\js\demo.min.js" />
+    <Content Include="setup-pnpm\node_modules\bin\store\v11\links\%40\fflate\0.4.8\3d6bb6f51514b78f73eff8bf58c4fef7e18a9483e0eef595f39f3a49c6c31e1d\node_modules\fflate\esm\browser.js" />
+    <Content Include="setup-pnpm\node_modules\bin\store\v11\links\%40\preact\10.29.3\140084fb8a57e97c29fa8a8c859027ef9e32ecc372b13de68ff8b4819864c7f8\node_modules\preact\dist\preact.module.js" />
+    <Content Include="setup-pnpm\node_modules\bin\store\v11\links\%40\preact\10.29.3\140084fb8a57e97c29fa8a8c859027ef9e32ecc372b13de68ff8b4819864c7f8\node_modules\preact\hooks\dist\hooks.module.js" />
+    <Content Include="static\avatars\000f.jpg" />
+    <Content Include="static\avatars\000m.jpg" />
+    <Content Include="static\avatars\001f.jpg" />
+    <Content Include="static\avatars\002f.jpg" />
+    <Content Include="static\avatars\002m.jpg" />
+    <Content Include="static\avatars\003f.jpg" />
+    <Content Include="static\avatars\003m.jpg" />
+    <Content Include="static\avatars\004f.jpg" />
+    <Content Include="static\avatars\004m.jpg" />
+    <Content Include="static\avatars\005f.jpg" />
+    <Content Include="static\avatars\006f.jpg" />
+    <Content Include="static\avatars\006m.jpg" />
+    <Content Include="static\avatars\007m.jpg" />
+    <Content Include="static\avatars\009m.jpg" />
+    <Content Include="static\avatars\010m.jpg" />
+    <Content Include="static\avatars\052f.jpg" />
+    <Content Include="static\avatars\063m.jpg" />
+    <Content Include="static\brands\amazon.svg" />
+    <Content Include="static\brands\android.svg" />
+    <Content Include="static\brands\app-store.svg" />
+    <Content Include="static\brands\apple-podcast.svg" />
+    <Content Include="static\brands\apple.svg" />
+    <Content Include="static\brands\behance.svg" />
+    <Content Include="static\brands\discord.svg" />
+    <Content Include="static\brands\dribbble.svg" />
+    <Content Include="static\brands\dropbox.svg" />
+    <Content Include="static\brands\ever-green.svg" />
+    <Content Include="static\brands\facebook.svg" />
+    <Content Include="static\brands\figma.svg" />
+    <Content Include="static\brands\github.svg" />
+    <Content Include="static\brands\gitlab.svg" />
+    <Content Include="static\brands\google-ads.svg" />
+    <Content Include="static\brands\google-adsense.svg" />
+    <Content Include="static\brands\google-analytics.svg" />
+    <Content Include="static\brands\google-cloud.svg" />
+    <Content Include="static\brands\google-drive.svg" />
+    <Content Include="static\brands\google-fit.svg" />
+    <Content Include="static\brands\google-home.svg" />
+    <Content Include="static\brands\google-maps.svg" />
+    <Content Include="static\brands\google-meet.svg" />
+    <Content Include="static\brands\google-photos.svg" />
+    <Content Include="static\brands\google-play.svg" />
+    <Content Include="static\brands\google-shopping.svg" />
+    <Content Include="static\brands\google-teams.svg" />
+    <Content Include="static\brands\google.svg" />
+    <Content Include="static\brands\instagram.svg" />
+    <Content Include="static\brands\klarna.svg" />
+    <Content Include="static\brands\linkedin.svg" />
+    <Content Include="static\brands\mailchimp.svg" />
+    <Content Include="static\brands\medium.svg" />
+    <Content Include="static\brands\messenger.svg" />
+    <Content Include="static\brands\meta.svg" />
+    <Content Include="static\brands\monday.svg" />
+    <Content Include="static\brands\netflix.svg" />
+    <Content Include="static\brands\notion.svg" />
+    <Content Include="static\brands\office-365.svg" />
+    <Content Include="static\brands\opera.svg" />
+    <Content Include="static\brands\paypal.svg" />
+    <Content Include="static\brands\petreon.svg" />
+    <Content Include="static\brands\pinterest.svg" />
+    <Content Include="static\brands\play-store.svg" />
+    <Content Include="static\brands\quora.svg" />
+    <Content Include="static\brands\reddit.svg" />
+    <Content Include="static\brands\shopify.svg" />
+    <Content Include="static\brands\skype.svg" />
+    <Content Include="static\brands\slack.svg" />
+    <Content Include="static\brands\snapchat.svg" />
+    <Content Include="static\brands\soundcloud.svg" />
+    <Content Include="static\brands\spotify.svg" />
+    <Content Include="static\brands\stripe.svg" />
+    <Content Include="static\brands\telegram.svg" />
+    <Content Include="static\brands\tiktok.svg" />
+    <Content Include="static\brands\tinder.svg" />
+    <Content Include="static\brands\trello.svg" />
+    <Content Include="static\brands\truth.svg" />
+    <Content Include="static\brands\tumblr.svg" />
+    <Content Include="static\brands\twitch.svg" />
+    <Content Include="static\brands\twitter.svg" />
+    <Content Include="static\brands\vimeo.svg" />
+    <Content Include="static\brands\vk.svg" />
+    <Content Include="static\brands\watppad.svg" />
+    <Content Include="static\brands\webflow.svg" />
+    <Content Include="static\brands\whatsapp.svg" />
+    <Content Include="static\brands\wordpress.svg" />
+    <Content Include="static\brands\xing.svg" />
+    <Content Include="static\brands\yelp.svg" />
+    <Content Include="static\brands\youtube.svg" />
+    <Content Include="static\brands\zapier.svg" />
+    <Content Include="static\brands\zendesk.svg" />
+    <Content Include="static\brands\zoom.svg" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\vazirmatn\Vazirmatn-Black.woff2" />
+    <Content Include="fonts\vazirmatn\Vazirmatn-Bold.woff2" />
+    <Content Include="fonts\vazirmatn\Vazirmatn-ExtraBold.woff2" />
+    <Content Include="fonts\vazirmatn\Vazirmatn-ExtraLight.woff2" />
+    <Content Include="fonts\vazirmatn\Vazirmatn-Light.woff2" />
+    <Content Include="fonts\vazirmatn\Vazirmatn-Medium.woff2" />
+    <Content Include="fonts\vazirmatn\Vazirmatn-Regular.woff2" />
+    <Content Include="fonts\vazirmatn\Vazirmatn-SemiBold.woff2" />
+    <Content Include="fonts\vazirmatn\Vazirmatn-Thin.woff2" />
+    <Content Include="fonts\vazirmatn\Vazirmatn[wght].woff2" />
+    <None Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="eat\src\autocapture-utils.ts" />
+    <TypeScriptCompile Include="eat\src\autocapture.ts" />
+    <TypeScriptCompile Include="eat\src\config.ts" />
+    <TypeScriptCompile Include="eat\src\consent.ts" />
+    <TypeScriptCompile Include="eat\src\constants.ts" />
+    <TypeScriptCompile Include="eat\src\entrypoints\array.no-external.ts" />
+    <TypeScriptCompile Include="eat\src\entrypoints\dead-clicks-autocapture.ts" />
+    <TypeScriptCompile Include="eat\src\entrypoints\default-extensions.ts" />
+    <TypeScriptCompile Include="eat\src\entrypoints\exception-autocapture.ts" />
+    <TypeScriptCompile Include="eat\src\entrypoints\external-scripts-loader.ts" />
+    <TypeScriptCompile Include="eat\src\entrypoints\logs.ts" />
+    <TypeScriptCompile Include="eat\src\entrypoints\surveys.ts" />
+    <TypeScriptCompile Include="eat\src\extensions\conversations\posthog-conversations.ts" />
+    <TypeScriptCompile Include="eat\src\extensions\dead-clicks-autocapture.ts" />
+    <TypeScriptCompile Include="eat\src\extensions\exception-autocapture\index.ts" />
+    <TypeScriptCompile Include="eat\src\extensions\extension-bundles.ts" />
+    <TypeScriptCompile Include="eat\src\extensions\external-integration.ts" />
+    <TypeScriptCompile Include="eat\src\extensions\history-autocapture.ts" />
+    <TypeScriptCompile Include="eat\src\extensions\rageclick.ts" />
+    <TypeScriptCompile Include="eat\src\extensions\replay\external\lazy-loaded-session-recorder.ts" />
+    <TypeScriptCompile Include="eat\src\extensions\replay\external\recording-strategies.ts" />
+    <TypeScriptCompile Include="eat\src\extensions\replay\external\triggerMatching.ts" />
+    <TypeScriptCompile Include="eat\src\extensions\replay\rrweb-plugins\patch.ts" />
+    <TypeScriptCompile Include="eat\src\extensions\replay\session-recording.ts" />
+    <TypeScriptCompile Include="eat\src\extensions\segment-integration.ts" />
+    <TypeScriptCompile Include="eat\src\extensions\sentry-integration.ts" />
+    <TypeScriptCompile Include="eat\src\extensions\surveys.tsx" />
+    <TypeScriptCompile Include="eat\src\extensions\surveys\action-matcher.ts" />
+    <TypeScriptCompile Include="eat\src\extensions\surveys\components\BottomSection.tsx" />
+    <TypeScriptCompile Include="eat\src\extensions\surveys\components\ConfirmationMessage.tsx" />
+    <TypeScriptCompile Include="eat\src\extensions\surveys\components\PostHogLogo.tsx" />
+    <TypeScriptCompile Include="eat\src\extensions\surveys\components\QuestionHeader.tsx" />
+    <TypeScriptCompile Include="eat\src\extensions\surveys\components\QuestionTypes.tsx" />
+    <TypeScriptCompile Include="eat\src\extensions\surveys\icons.tsx" />
+    <TypeScriptCompile Include="eat\src\extensions\surveys\surveys-extension-utils.tsx" />
+    <TypeScriptCompile Include="eat\src\extensions\toolbar.ts" />
+    <TypeScriptCompile Include="eat\src\extensions\tracing-headers.ts" />
+    <TypeScriptCompile Include="eat\src\extensions\utils\matcher-utils.ts" />
+    <TypeScriptCompile Include="eat\src\extensions\utils\stylesheet-loader.ts" />
+    <TypeScriptCompile Include="eat\src\extensions\web-vitals\index.ts" />
+    <TypeScriptCompile Include="eat\src\heatmaps.ts" />
+    <TypeScriptCompile Include="eat\src\logs-defaults.ts" />
+    <TypeScriptCompile Include="eat\src\page-view.ts" />
+    <TypeScriptCompile Include="eat\src\persistence-key-policy.ts" />
+    <TypeScriptCompile Include="eat\src\persistence-key-transforms.ts" />
+    <TypeScriptCompile Include="eat\src\posthog-core.ts" />
+    <TypeScriptCompile Include="eat\src\posthog-exceptions.ts" />
+    <TypeScriptCompile Include="eat\src\posthog-featureflags.ts" />
+    <TypeScriptCompile Include="eat\src\posthog-logs.ts" />
+    <TypeScriptCompile Include="eat\src\posthog-persistence.ts" />
+    <TypeScriptCompile Include="eat\src\posthog-product-tours-types.ts" />
+    <TypeScriptCompile Include="eat\src\posthog-product-tours.ts" />
+    <TypeScriptCompile Include="eat\src\posthog-surveys-types.ts" />
+    <TypeScriptCompile Include="eat\src\posthog-surveys.ts" />
+    <TypeScriptCompile Include="eat\src\rate-limiter.ts" />
+    <TypeScriptCompile Include="eat\src\remote-config.ts" />
+    <TypeScriptCompile Include="eat\src\request-queue.ts" />
+    <TypeScriptCompile Include="eat\src\request.ts" />
+    <TypeScriptCompile Include="eat\src\retry-queue.ts" />
+    <TypeScriptCompile Include="eat\src\scroll-manager.ts" />
+    <TypeScriptCompile Include="eat\src\session-props.ts" />
+    <TypeScriptCompile Include="eat\src\sessionid.ts" />
+    <TypeScriptCompile Include="eat\src\site-apps.ts" />
+    <TypeScriptCompile Include="eat\src\storage.ts" />
+    <TypeScriptCompile Include="eat\src\types.ts" />
+    <TypeScriptCompile Include="eat\src\utils\blocked-uas.ts" />
+    <TypeScriptCompile Include="eat\src\utils\device-model-utils.ts" />
+    <TypeScriptCompile Include="eat\src\utils\element-utils.ts" />
+    <TypeScriptCompile Include="eat\src\utils\elements-chain-utils.ts" />
+    <TypeScriptCompile Include="eat\src\utils\encode-utils.ts" />
+    <TypeScriptCompile Include="eat\src\utils\event-receiver.ts" />
+    <TypeScriptCompile Include="eat\src\utils\event-utils.ts" />
+    <TypeScriptCompile Include="eat\src\utils\globals.ts" />
+    <TypeScriptCompile Include="eat\src\utils\index.ts" />
+    <TypeScriptCompile Include="eat\src\utils\logger.ts" />
+    <TypeScriptCompile Include="eat\src\utils\property-utils.ts" />
+    <TypeScriptCompile Include="eat\src\utils\prototype-utils.ts" />
+    <TypeScriptCompile Include="eat\src\utils\regex-utils.ts" />
+    <TypeScriptCompile Include="eat\src\utils\request-router.ts" />
+    <TypeScriptCompile Include="eat\src\utils\request-utils.ts" />
+    <TypeScriptCompile Include="eat\src\utils\simple-event-emitter.ts" />
+    <TypeScriptCompile Include="eat\src\utils\survey-branching.ts" />
+    <TypeScriptCompile Include="eat\src\utils\survey-event-receiver.ts" />
+    <TypeScriptCompile Include="eat\src\utils\survey-translations.ts" />
+    <TypeScriptCompile Include="eat\src\utils\survey-url-prefill.ts" />
+    <TypeScriptCompile Include="eat\src\utils\survey-utils.ts" />
+    <TypeScriptCompile Include="eat\src\utils\type-utils.ts" />
+    <TypeScriptCompile Include="eat\src\utils\url-targeting-utils.ts" />
+    <TypeScriptCompile Include="eat\src\uuidv7.ts" />
+    <TypeScriptCompile Include="eat\src\web-experiments.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="assets\layout\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51095</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44314/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+</Project>

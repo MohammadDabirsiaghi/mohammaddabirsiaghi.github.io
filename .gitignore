@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/slnx.sqlite
+/obj/Debug
+/.vs
+/bin
+/packages/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1
+/setup-pnpm
+/node_modules

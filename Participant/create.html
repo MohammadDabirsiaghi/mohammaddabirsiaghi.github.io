@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title></title>
+
+    <meta name="msapplication-TileColor" content="#066fd1" />
+    <meta name="theme-color" content="#066fd1" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+
+    <meta name="description" content="" />
+    <meta name="canonical" content="" />
+    <meta name="twitter:image:src" content="" />
+    <meta name="twitter:site" content="" />
+    <meta name="twitter:card" content="" />
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:description" content="" />
+
+    <meta property="og:image" content="" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="640" />
+    <meta property="og:site_name" content="" />
+    <meta property="og:type" content="object" />
+    <meta property="og:title" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:description" content="" />
+
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link href="/dist/libs/jsvectormap/dist/jsvectormap.css" rel="stylesheet" />
+    <link href="/dist/libs/dropzone/dist/dropzone.css" rel="stylesheet" />
+    <!-- END PAGE LEVEL STYLES -->
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <div id="layout-global-mandatory-styles"></div>
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN PLUGINS STYLES -->
+    <link href="/dist/css/tabler-flags.rtl.min.css" rel="stylesheet" integrity="sha384-Q/h6koANGclsGnwB8rvF8h84H54NKHDeNWFj6yiE4WLLEXyHcz+Zu6Afkh2ssYTC" />
+    <link href="/dist/css/tabler-socials.rtl.min.css?1759774806" rel="stylesheet" integrity="sha384-yobKDIyTOxB1z7t/uZ2ImuXrcKWF24vDYg2vR1n7x2msF09iWnvyIxQtfEl9+OFl" />
+    <link href="/dist/css/tabler-payments.rtl.min.css?1759774806" rel="stylesheet" integrity="sha384-69CxgA+uEPtM07SLA8MMAdnBmwtVGndDJf8nIPdfvNrDayBfPqOK3wS3nvV5yyk+" />
+    <link href="/dist/css/tabler-vendors.rtl.min.css?1759774806" rel="stylesheet" integrity="sha384-V555LUGE2xyN4wNbzdVMgsajsKmJdlLFm20Ws72jEyPiSsTXXITV0PebNzVeBjnb" />
+    <link href="/dist/css/tabler-marketing.rtl.min.css?1759774806" rel="stylesheet" integrity="sha384-c6gNhuNYjp+lqluSdArbL8ciLEBq7IVU00XnPM2Eogj8RAjMapccvOM/pGhk3vV6" />
+    <link href="/dist/css/tabler-themes.rtl.min.css?1759774806" rel="stylesheet" integrity="sha384-WTp4aZ+OGqnkNR6Xe0sJwwfd0JHGq3dZTLU2ITKxTK2zjcJTBUMY/+Z4eXgm8ipF" />
+    <!-- END PLUGINS STYLES -->
+    <!-- BEGIN DEMO STYLES -->
+    <link href="/preview/css/demo.min.css?1759774806" rel="stylesheet" integrity="sha384-BUDq2P684xwRBf0GDlySvob+KJg4ko8y2K7njgvYBscmEuqoVVqJ75zcTDozwkFA" />
+    <!-- END DEMO STYLES -->
+    <!-- BEGIN CUSTOM FONT -->
+    <style>
+        @import url("https://rsms.me/inter/inter.css");
+    </style>
+    <link href="/fonts/vazirmatn/Vazirmatn-font-face.css" rel="stylesheet" />
+
+    <!-- END CUSTOM FONT -->
+    <style>
+        input, textarea {
+            border: 1.5px solid #cbd5e1 !important;
+            background: #f8fafc !important;
+            color: #0f172a !important;
+        }
+        body {
+            font-family: Vazirmatn, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <!-- BEGIN GLOBAL THEME SCRIPT -->
+    <script src="/dist/js/tabler-theme.min.js?1759774806" integrity="sha384-SoDJmj40r6f9Rfxi6Fq+bNS8ofhlZMyxHk9dq9Y8e1M17PZGkBRN/XUpx8swn0i5"></script>
+    <!-- END GLOBAL THEME SCRIPT -->
+    <div class="page">
+
+        <!-- BEGIN NAVBAR  -->
+        <div id="layout-sidebar"></div>
+        <!-- END NAVBAR  -->
+        <div class="page-wrapper">
+            <!-- BEGIN PAGE HEADER -->
+            <div id="layout-page-header" data-title="افزودن شرکت کننده"></div>
+            <!-- END PAGE HEADER -->
+            <!-- BEGIN PAGE BODY -->
+            <div class="page-body">
+                <div class="container-xl">
+                    <!-- Content here -->
+                    <form id="participant-form" novalidate>
+                        <!-- برای حالت ویرایش -->
+                        <input type="hidden" id="participantId" name="participantId">
+                        <div class="col-12">
+                            <div id="form-message" class="alert d-none"></div>
+                        </div>
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Cards inside card</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row row-cards">
+                                        <div class="col-12">
+                                            <div class="card">
+
+                                                <div class="card-header bg-red-lt">
+                                                    <h3 class="card-title">بخش ۱: معرفی و مشخصات فردی</h3>
+                                                </div>
+                                                <div class="card-body">
+
+                                                    <div class="row row-cards">
+                                                        <div class="col-sm-6 col-md-4">
+                                                            <div class="mb-3">
+                                                                <label for="fullName" class="form-label required">
+                                                                    نام و نام خانوادگی
+                                                                </label>
+
+                                                                <input type="text"
+                                                                       class="form-control"
+                                                                       id="fullName"
+                                                                       name="fullName"
+                                                                       minlength="3"
+                                                                       maxlength="100"
+                                                                       required>
+
+                                                                <div class="invalid-feedback">
+                                                                    نام و نام خانوادگی را وارد کنید.
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6 col-md-4">
+                                                            <div class="mb-3">
+                                                                <label for="mobile1" class="form-label required">موبایل ۱</label>
+
+                                                                <input type="tel"
+                                                                       class="form-control"
+                                                                       id="mobile1"
+                                                                       name="mobile1"
+                                                                       inputmode="numeric"
+                                                                       maxlength="13"
+                                                                       placeholder="09123456789"
+                                                                       required>
+
+                                                                <div class="invalid-feedback">
+                                                                    شماره موبایل معتبر وارد کنید.
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6 col-md-4">
+                                                            <div class="mb-3">
+                                                                <label for="mobile2" class="form-label">موبایل ۲</label>
+
+                                                                <input type="tel"
+                                                                       class="form-control"
+                                                                       id="mobile2"
+                                                                       name="mobile2"
+                                                                       inputmode="numeric"
+                                                                       maxlength="13"
+                                                                       placeholder="09123456789">
+
+                                                                <div class="invalid-feedback">
+                                                                    شماره موبایل دوم معتبر نیست.
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="row row-cards">
+                                                        <div class="col-sm-6 col-md-8">
+                                                            <div class="row row-cards">
+                                                                <div class="col-sm-6 col-md-6">
+                                                                    <div class="mb-3">
+                                                                        <label for="province" class="form-label">استان</label>
+
+                                                                        <input type="text"
+                                                                               class="form-control"
+                                                                               id="province"
+                                                                               name="province"
+                                                                               maxlength="50">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-6 col-md-6">
+                                                                    <div class="mb-3">
+                                                                        <label for="city" class="form-label">شهر</label>
+
+                                                                        <input type="text"
+                                                                               class="form-control"
+                                                                               id="city"
+                                                                               name="city"
+                                                                               maxlength="50">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    <div class="mb-3 mb-0">
+                                                                        <label for="shortBio" class="form-label">معرفی کوتاه</label>
+
+                                                                        <textarea class="form-control"
+                                                                                  id="shortBio"
+                                                                                  name="shortBio"
+                                                                                  rows="4"
+                                                                                  maxlength="1000"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="col-sm-6 col-md-4">
+                                                            <label class="form-label">عکس</label>
+
+                                                            <div id="photo-dropzone" class="dropzone">
+                                                                <div class="dz-message">
+                                                                    <strong>عکس را انتخاب کنید یا اینجا رها کنید</strong>
+                                                                    <div class="text-secondary mt-2">
+                                                                        JPG، PNG یا WebP — حداکثر ۱٫۵ مگابایت
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div id="current-photo-container" class="mt-3 d-none">
+                                                                <img id="current-photo"
+                                                                     class="avatar avatar-xl"
+                                                                     alt="تصویر فعلی">
+
+                                                                <button type="button"
+                                                                        id="remove-photo-btn"
+                                                                        class="btn btn-sm btn-outline-danger ms-2">
+                                                                    حذف تصویر
+                                                                </button>
+                                                            </div>
+
+                                                            <div id="photo-error" class="text-danger small mt-2"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="card mt-3">
+
+                                                <div class="card-header">
+                                                    <h3 class="card-title">بخش ۲: تعاملات و پروژه‌های تجاری</h3>
+                                                </div>
+                                                <div class="card-body">
+
+                                                    <div class="row row-cards">
+                                                        <div class="col-sm-6 col-md-4">
+                                                            <div class="mb-3">
+                                                                <label for="exportProject" class="form-label">پروژه صادرات</label>
+
+                                                                <input type="text" class="form-control"
+                                                                       id="exportProject"
+                                                                       name="exportProject"
+                                                                       maxlength="2000" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6 col-md-4">
+                                                            <div class="mb-3">
+                                                                <label for="importProject" class="form-label">پروژه واردات</label>
+
+                                                                <input type="text" class="form-control"
+                                                                       id="importProject"
+                                                                       name="importProject"
+                                                                       maxlength="2000" />
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div>
+                                                    <div class="row row-cards">
+                                                        <div class="col-md-12">
+                                                            <div class="mb-3">
+                                                                <label for="otherProjects" class="form-label">
+                                                                    پروژه‌های دیگر واردات و صادرات
+                                                                </label>
+                                                                <textarea class="form-control"
+                                                                          id="otherProjects"
+                                                                          name="otherProjects"
+                                                                          rows="3"
+                                                                          maxlength="3000"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row row-cards">
+                                                        <div class="col-sm-6 col-md-6">
+                                                            <div class="mb-3">
+                                                                <label for="myNeeds" class="form-label">نیازهای من</label>
+                                                                <textarea class="form-control"
+                                                                          id="myNeeds"
+                                                                          name="myNeeds"
+                                                                          rows="3"
+                                                                          maxlength="2000"></textarea>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6 col-md-6">
+                                                            <div class="mb-3">
+                                                                <label for="howICanHelp" class="form-label">
+                                                                    چگونه می‌توانم به دیگران کمک کنم
+                                                                </label>
+                                                                <textarea class="form-control"
+                                                                          id="howICanHelp"
+                                                                          name="howICanHelp"
+                                                                          rows="3"
+                                                                          maxlength="2000"></textarea>
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="card mt-3">
+
+                                                <div class="card-header">
+                                                    <h3 class="card-title">بخش ۳: راه‌های ارتباطی دیگر</h3>
+                                                </div>
+                                                <div class="card-body">
+
+                                                    <div class="row row-cards">
+                                                        <div class="col-sm-6 col-md-4">
+                                                            <div class="mb-3">
+                                                                <label for="email" class="form-label">ایمیل</label>
+                                                                <input type="email"
+                                                                       class="form-control"
+                                                                       id="email"
+                                                                       name="email"
+                                                                       maxlength="150"
+                                                                       placeholder="name@example.com">
+
+                                                                <div class="invalid-feedback">
+                                                                    آدرس ایمیل معتبر نیست.
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6 col-md-4">
+                                                            <div class="mb-3">
+                                                                <label for="website" class="form-label">وب‌سایت</label>
+
+                                                                <input type="url"
+                                                                       class="form-control"
+                                                                       id="website"
+                                                                       name="website"
+                                                                       maxlength="500"
+                                                                       placeholder="https://example.com">
+
+                                                                <div class="invalid-feedback">
+                                                                    آدرس کامل وب‌سایت را همراه با https:// وارد کنید.
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div>
+                                                    <div class="row row-cards">
+                                                        <div class="col-sm-6 col-md-4">
+                                                            <div class="mb-3">
+                                                                <label for="linkedin" class="form-label">آدرس کامل لینکدین</label>
+
+                                                                <input type="url"
+                                                                       class="form-control"
+                                                                       id="linkedin"
+                                                                       name="linkedin"
+                                                                       maxlength="500"
+                                                                       placeholder="https://www.linkedin.com/in/username">
+
+                                                                <div class="invalid-feedback">
+                                                                    آدرس کامل و معتبر لینکدین را وارد کنید.
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6 col-md-4">
+                                                            <div class="mb-3">
+                                                                <label for="instagram" class="form-label">آدرس کامل اینستاگرام</label>
+                                                                <input type="url"
+                                                                       class="form-control"
+                                                                       id="instagram"
+                                                                       name="instagram"
+                                                                       maxlength="500"
+                                                                       placeholder="https://www.instagram.com/username">
+
+                                                                <div class="invalid-feedback">
+                                                                    آدرس کامل و معتبر اینستاگرام را وارد کنید.
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer text-end">
+                               
+
+                                    <button type="submit"
+                                            id="submit-btn"
+                                            class="btn btn-primary">
+                                        ثبت اطلاعات
+                                    </button>
+                                    <a href="#" class="btn btn-primary w-100" data-bs-dismiss="offcanvas"> Save </a>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+
+            <!-- END PAGE BODY -->
+            <!--  BEGIN FOOTER  -->
+            <div id="layout-footer"></div>
+
+            <!--  END FOOTER  -->
+        </div>
+    </div>
+    <!-- BEGIN PAGE MODALS -->
+    <!-- END PAGE MODALS -->
+
+
+    <!-- BEGIN PAGE LIBRARIES -->
+    <script src="/dist/libs/dropzone/dist/dropzone-min.js" defer></script>
+    <script src="/dist/libs/apexcharts/dist/apexcharts.min.js?1759774806" defer></script>
+    <script src="/dist/libs/jsvectormap/dist/jsvectormap.min.js?1759774806" defer></script>
+    <script src="/dist/libs/jsvectormap/dist/maps/world.js?1759774806" defer></script>
+    <script src="/dist/libs/jsvectormap/dist/maps/world-merc.js?1759774806" defer></script>
+    <!-- END PAGE LIBRARIES -->
+    <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
+    <script src="/dist/js/tabler.min.js?1759774806" defer integrity="sha384-pku3birjgGovaJ9ngF7SaxKkF/eYUvBjiMJ+jTtWbNesIj2Rud2K63+4JD7EF4gk"></script>
+    <!-- END GLOBAL MANDATORY SCRIPTS -->
+    <!-- BEGIN DEMO SCRIPTS -->
+    <script src="/preview/js/demo.min.js?1759774806" defer></script>
+    <!-- END DEMO SCRIPTS -->
+
+    <script src="https://scripts.tabler.io/banner.js" defer data-tblr-ref="tabler-preview-top-banner"></script>
+
+    <!-- BEGIN PAGE SCRIPTS -->
+
+    <!-- END PAGE SCRIPTS -->
+
+    <script src="/assets/layout.js"></script>
+    <script src="/assets/staticassets.js"></script>
+    <script src="/assets/participant-form.js"></script>
+    <!--<script>
+        const API_URL = 'https://script.google.com/macros/s/AKfycbyf7z1uI-opyLdPDpxU5pFU8H9u25Rm0qs4zPm_FKBrrAVYHNxV451nkO3gPoC0sPYy/exec';
+
+        async function loadParticipants() {
+            const response = await fetch(API_URL);
+            const result = await response.json();
+
+            if (!result.ok) {
+                throw new Error('خطا در دریافت اطلاعات');
+            }
+
+            return result.data;
+        }
+
+        function renderParticipantsTable(items) {
+            const tbody = document.getElementById('participants-table-body');
+
+            if (!items || items.length === 0) {
+                tbody.innerHTML = `
+                                                                  <tr>
+                                                                    <td colspan="3">داده‌ای وجود ندارد</td>
+                                                                  </tr>
+                                                                `;
+                return;
+            }
+
+            tbody.innerHTML = items.map(item => `
+                                                                <tr>
+                                                                  <td>${item['FullName'] ?? ''}</td>
+                                                                  <td>${item['موبایل'] ?? ''}</td>
+                                                                  <td>${item['شهر'] ?? ''}</td>
+                                                                </tr>
+                                                              `).join('');
+        }
+
+        async function initPage() {
+            try {
+                const participants = await loadParticipants();
+                renderParticipantsTable(participants);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        initPage();
+
+    </script>-->
+</body>
+</html>
