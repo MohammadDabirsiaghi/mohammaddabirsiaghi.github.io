@@ -69,12 +69,17 @@
   <ItemGroup>
     <Content Include="assets\api.js" />
     <Content Include="assets\config.js" />
+    <Content Include="assets\layout\header.js" />
     <Content Include="assets\pageloader.js" />
     <Content Include="assets\participant-form.js" />
-    <Content Include="assets\participants\form.js" />
-    <Content Include="assets\participants\list.js" />
+    <Content Include="pages\participant\api-client-appscript.js" />
+    <Content Include="pages\participant\api-client-factory.js" />
+    <Content Include="pages\appscript-client.js" />
+    <Content Include="pages\participant\config.js" />
+    <Content Include="pages\participant\form.js" />
+    <Content Include="pages\participant\list.js" />
     <Content Include="assets\staticassets.js" />
-    <Content Include="assets\layout.js" />
+    <Content Include="assets\layout\body.js" />
     <Content Include="assets\toast.js" />
     <Content Include="cdn-cgi\speculation.html" />
     <Content Include="core\dist\error-tracking\chunk-ids.mjs" />
@@ -114,6 +119,7 @@
     <Content Include="dist\css\dist\css\tabler-themes.rtl.css" />
     <Content Include="dist\css\dist\css\tabler-vendors.rtl.css" />
     <Content Include="dist\css\dist\css\tabler.rtl.css" />
+    <Content Include="assets\css\site.css" />
     <Content Include="dist\css\tabler-flags.css" />
     <Content Include="dist\css\tabler-flags.rtl.min.css" />
     <Content Include="dist\css\tabler-marketing.css" />
@@ -151,8 +157,8 @@
     <Content Include="eat\static\surveys.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\vazirmatn\Vazirmatn-font-face.css" />
-    <Content Include="members.html" />
-    <Content Include="Index1.html" />
+    <Content Include="layout.html" />
+    <Content Include="pages\participant\list.html" />
     <Content Include="js\demo.js" />
     <Content Include="js\src\autosize.js" />
     <Content Include="js\src\countup.js" />
@@ -222,7 +228,12 @@
     <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\utils\userAgent.js" />
     <Content Include="node_modules\pnpm\%40popperjs+core%402.11.8\node_modules\%40popperjs\core\lib\utils\within.js" />
     <Content Include="node_modules\pnpm\bootstrap%405.3.7_%40popperjs+core%402.11.8\node_modules\bootstrap\dist\js\bootstrap.esm.js" />
-    <Content Include="Participant\create.html" />
+    <Content Include="pages\participant\form.html" />
+    <Content Include="pages\participant\participant-api.js" />
+    <Content Include="pages\participant\participant-service.js" />
+    <Content Include="pages\participant\participant-ui.js" />
+    <Content Include="pages\participant\request-store.js" />
+    <Content Include="pages\participant\utils.js" />
     <Content Include="preview\css\demo.css" />
     <Content Include="preview\css\demo.min.css" />
     <Content Include="preview\css\dist\preview\css\demo.css" />
@@ -440,7 +451,10 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="assets\layout\" />
+    <Folder Include="assets\participants\" />
+    <Folder Include="pages\api\" />
+    <Folder Include="pages\services\" />
+    <Folder Include="pages\ui\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

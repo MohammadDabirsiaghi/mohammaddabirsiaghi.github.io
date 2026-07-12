@@ -11,30 +11,50 @@
         return apiUrl;
     }
 
-    async function post(payload) {
-        const response = await fetch(getApiUrl(), {
-            method: "POST",
-            headers: {
-                "Content-Type": "text/plain;charset=utf-8"
-            },
-            body: JSON.stringify(payload)
+    function createRequestId(prefix) {
+        const p = prefix || "req";
+        return (
+            p +
+            "_" +
+            Date.now() +
+            "_" +
+            Math.random().toString(36).slice(2, 10)
+        );
+    }
+
+    // POST در حالت no-cors => پاسخ opaque است => نه status قابل اتکاست نه json
+    async function post(payload, options) {
+        options = options || {};
+        const requestId =
+            options.requestId ||
+            payload?.requestId ||
+            createRequestId("req");
+
+        const body = JSON.stringify({
+            ...payload,
+            requestId: requestId
         });
 
-        if (!response.ok) {
-            throw new Error(
-                "خطای ارتباط با سرور: " + response.status
-            );
+        try {
+            await fetch(getApiUrl(), {
+                method: "POST",
+                mode: "no-cors",
+                headers: {
+                    "Content-Type": "text/plain;charset=utf-8"
+                },
+                body: body
+            });
+
+            // فقط تایید ارسال (نه موفقیت پردازش)
+            return {
+                ok: true,
+                pending: true,
+                requestId: requestId,
+                message: "درخواست ارسال شد. در حال پیگیری نتیجه..."
+            };
+        } catch (e) {
+            throw new Error("ارسال درخواست ناموفق بود. اتصال اینترنت را بررسی کنید.");
         }
-
-        const result = await response.json();
-
-        if (!result?.ok) {
-            throw new Error(
-                result?.message || "عملیات ناموفق بود."
-            );
-        }
-
-        return result;
     }
 
     function get(params) {
@@ -68,12 +88,7 @@
                 cleanup();
 
                 if (!result?.ok) {
-                    reject(
-                        new Error(
-                            result?.message ||
-                            "عملیات ناموفق بود."
-                        )
-                    );
+                    reject(new Error(result?.message || "عملیات ناموفق بود."));
                     return;
                 }
 
@@ -82,29 +97,72 @@
 
             script.onerror = function () {
                 cleanup();
-                reject(
-                    new Error("ارتباط با سرور برقرار نشد.")
-                );
+                reject(new Error("ارتباط با سرور برقرار نشد."));
             };
 
             timeoutId = setTimeout(function () {
                 cleanup();
-                reject(
-                    new Error(
-                        "زمان دریافت پاسخ از سرور تمام شد."
-                    )
-                );
+                reject(new Error("زمان دریافت پاسخ از سرور تمام شد."));
             }, 30000);
 
-            script.src =
-                getApiUrl() + "?" + query.toString();
-
+            script.src = getApiUrl() + "?" + query.toString();
             document.body.appendChild(script);
         });
     }
 
+    /**
+     * Polling با JSONP GET
+     * انتظار داریم backend اکشنی مثل getRequestStatus داشته باشد و یکی از این‌ها را برگرداند:
+     * { ok:true, status:'pending'|'done'|'error', message, data }
+     */
+    async function poll(params) {
+        const requestId = params?.requestId;
+        const action = params?.action || "getRequestStatus";
+        const intervalMs = Number(params?.intervalMs || 1200);
+        const maxAttempts = Number(params?.maxAttempts || 25);
+
+        if (!requestId) {
+            throw new Error("requestId برای polling الزامی است.");
+        }
+
+        let attempt = 0;
+
+        while (attempt < maxAttempts) {
+            attempt += 1;
+
+            const res = await get({
+                action: action,
+                requestId: requestId
+            });
+
+            // اگر backend فقط ok=true برمی‌گرداند، اینجا باید status را چک کنیم
+            const status = String(res.status || "").toLowerCase();
+
+            if (status === "done") {
+                return res;
+            }
+
+            if (status === "error") {
+                throw new Error(res.message || "پردازش درخواست با خطا مواجه شد.");
+            }
+
+            // pending یا حالت نامشخص => ادامه polling
+            await new Promise((r) => setTimeout(r, intervalMs));
+        }
+
+        // تایم‌اوت polling
+        return {
+            ok: true,
+            status: "pending",
+            requestId: requestId,
+            message: "درخواست هنوز در حال پردازش است."
+        };
+    }
+
     window.ApiClient = Object.freeze({
         get: get,
-        post: post
+        post: post,
+        poll: poll,
+        createRequestId: createRequestId
     });
 })();

@@ -1,80 +1,107 @@
 <!doctype html>
-<html lang="fa" dir="rtl">
+<html lang="fa" dir="rtl"  data-page-title="لیست ">
 <head>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title></title>
 
-    <meta name="msapplication-TileColor" content="#066fd1" />
-    <meta name="theme-color" content="#066fd1" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="MobileOptimized" content="320" />
-
-    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
-
-    <meta name="description" content="" />
-    <meta name="canonical" content="" />
-    <meta name="twitter:image:src" content="" />
-    <meta name="twitter:site" content="" />
-    <meta name="twitter:card" content="" />
-    <meta name="twitter:title" content="" />
-    <meta name="twitter:description" content="" />
-
-    <meta property="og:image" content="" />
-    <meta property="og:image:width" content="1280" />
-    <meta property="og:image:height" content="640" />
-    <meta property="og:site_name" content="" />
-    <meta property="og:type" content="object" />
-    <meta property="og:title" content="" />
-    <meta property="og:url" content="" />
-    <meta property="og:description" content="" />
-
-    <!-- BEGIN PAGE LEVEL STYLES -->
-    <link href="./dist/libs/jsvectormap/dist/jsvectormap.css" rel="stylesheet" />
-    <!-- END PAGE LEVEL STYLES -->
+    <script src="/assets/layout/header.js" defer></script>
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
-    <div id="layout-global-mandatory-styles"></div>
     <!-- END GLOBAL MANDATORY STYLES -->
-    <!-- BEGIN PLUGINS STYLES -->
-    <link href="./dist/css/tabler-flags.rtl.min.css" rel="stylesheet" integrity="sha384-Q/h6koANGclsGnwB8rvF8h84H54NKHDeNWFj6yiE4WLLEXyHcz+Zu6Afkh2ssYTC" />
-    <link href="./dist/css/tabler-socials.rtl.min.css?1759774806" rel="stylesheet" integrity="sha384-yobKDIyTOxB1z7t/uZ2ImuXrcKWF24vDYg2vR1n7x2msF09iWnvyIxQtfEl9+OFl" />
-    <link href="./dist/css/tabler-payments.rtl.min.css?1759774806" rel="stylesheet" integrity="sha384-69CxgA+uEPtM07SLA8MMAdnBmwtVGndDJf8nIPdfvNrDayBfPqOK3wS3nvV5yyk+" />
-    <link href="./dist/css/tabler-vendors.rtl.min.css?1759774806" rel="stylesheet" integrity="sha384-V555LUGE2xyN4wNbzdVMgsajsKmJdlLFm20Ws72jEyPiSsTXXITV0PebNzVeBjnb" />
-    <link href="./dist/css/tabler-marketing.rtl.min.css?1759774806" rel="stylesheet" integrity="sha384-c6gNhuNYjp+lqluSdArbL8ciLEBq7IVU00XnPM2Eogj8RAjMapccvOM/pGhk3vV6" />
-    <link href="./dist/css/tabler-themes.rtl.min.css?1759774806" rel="stylesheet" integrity="sha384-WTp4aZ+OGqnkNR6Xe0sJwwfd0JHGq3dZTLU2ITKxTK2zjcJTBUMY/+Z4eXgm8ipF" />
-    <!-- END PLUGINS STYLES -->
-    <!-- BEGIN DEMO STYLES -->
-    <link href="./preview/css/demo.min.css?1759774806" rel="stylesheet" integrity="sha384-BUDq2P684xwRBf0GDlySvob+KJg4ko8y2K7njgvYBscmEuqoVVqJ75zcTDozwkFA" />
-    <!-- END DEMO STYLES -->
+
     <!-- BEGIN CUSTOM FONT -->
-    <style>
-        @import url("https://rsms.me/inter/inter.css");
-    </style>
     <!-- END CUSTOM FONT -->
 
+
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <!-- END PAGE LEVEL STYLES -->
+
+
+    <!-- BEGIN PLUGINS STYLES -->
+    <!-- END PLUGINS STYLES -->
+
+
+    <!-- BEGIN DEMO STYLES -->
+    <!-- END DEMO STYLES -->
+   <style>
+       #pagination {
+           display: flex;
+           flex-wrap: wrap;
+           align-items: center;
+           justify-content: center;
+           gap: 0.5rem;
+           margin-top: 1rem;
+       }
+
+           #pagination button {
+               min-width: 40px;
+               height: 40px;
+               padding: 0 12px;
+               border: 1px solid #d0d7de;
+               border-radius: 10px;
+               background: #fff;
+               color: #333;
+               font-size: 14px;
+               line-height: 1;
+               cursor: pointer;
+               transition: all 0.2s ease;
+           }
+
+               #pagination button:hover:not(:disabled) {
+                   border-color: #0d6efd;
+                   color: #0d6efd;
+                   background: #f8fbff;
+               }
+
+               #pagination button.active {
+                   background: #0d6efd;
+                   border-color: #0d6efd;
+                   color: #fff;
+                   font-weight: 600;
+               }
+
+               #pagination button:disabled {
+                   opacity: 0.5;
+                   cursor: not-allowed;
+                   background: #f5f5f5;
+               }
+
+           #pagination .pagination-ellipsis {
+               display: inline-flex;
+               align-items: center;
+               justify-content: center;
+               min-width: 24px;
+               color: #888;
+               font-size: 14px;
+           }
+
+   </style>
 </head>
-<body class="layout-fluid">
+<body class="layout-fluid" data-page="participant-list">
+    <div id="layout-body-toast-container"></div>
+    <div id="layout-body-loader"></div>
+
     <!-- BEGIN GLOBAL THEME SCRIPT -->
-    <script src="./dist/js/tabler-theme.min.js?1759774806" integrity="sha384-SoDJmj40r6f9Rfxi6Fq+bNS8ofhlZMyxHk9dq9Y8e1M17PZGkBRN/XUpx8swn0i5"></script>
+    <div id="layout-body-global-theme-script"></div>
     <!-- END GLOBAL THEME SCRIPT -->
+
+
+
     <div class="page">
 
         <!-- BEGIN NAVBAR  -->
-        <div id="layout-sidebar"></div>
+        <div id="layout-body-navbar"></div>
         <!-- END NAVBAR  -->
         <div class="page-wrapper">
             <!-- BEGIN PAGE HEADER -->
-            <div id="layout-page-header" data-title="لیست شرکت‌کنندگان"></div>
+            <div id="layout-body-page-header" data-title="لیست شرکت‌کنندگان"></div>
             <!-- END PAGE HEADER -->
             <!-- BEGIN PAGE BODY -->
             <div class="page-body">
                 <div class="container-xl">
                     <!-- Content here -->
+
                     <div class="row row-cards">
                         <div class="col-md-12">
                             <div class="card">
@@ -186,17 +213,24 @@
                         </div>
 
                         <div class="card-body">
-                         
+
                         </div>
                     </div>
 
-         
 
 
 
 
 
+                    <div id="participants-list"
+                         class="list-group list-group-flush">
+                    </div>
 
+                    <div id="participants-empty"
+                         class="card-body text-center text-secondary d-none">
+                        شرکت‌کننده‌ای یافت نشد.
+                    </div>
+                    <div id="pagination"></div>
                     <div class="row row-cards">
                         <div class="col-12">
                             <div class="card">
@@ -251,103 +285,36 @@
             </div>
             <!-- END PAGE BODY -->
             <!--  BEGIN FOOTER  -->
-            <div id="layout-footer"></div>
+            <div id="layout-body-footer"></div>
 
             <!--  END FOOTER  -->
         </div>
     </div>
     <!-- BEGIN PAGE MODALS -->
     <!-- END PAGE MODALS -->
-
-
     <!-- BEGIN PAGE LIBRARIES -->
-    <script src="./dist/libs/apexcharts/dist/apexcharts.min.js?1759774806" defer></script>
-    <script src="./dist/libs/jsvectormap/dist/jsvectormap.min.js?1759774806" defer></script>
-    <script src="./dist/libs/jsvectormap/dist/maps/world.js?1759774806" defer></script>
-    <script src="./dist/libs/jsvectormap/dist/maps/world-merc.js?1759774806" defer></script>
     <!-- END PAGE LIBRARIES -->
     <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
-    <script src="./dist/js/tabler.min.js?1759774806" defer integrity="sha384-pku3birjgGovaJ9ngF7SaxKkF/eYUvBjiMJ+jTtWbNesIj2Rud2K63+4JD7EF4gk"></script>
+
+
+    <script src="/dist/js/tabler.min.js" defer></script>
     <!-- END GLOBAL MANDATORY SCRIPTS -->
     <!-- BEGIN DEMO SCRIPTS -->
-    <script src="./preview/js/demo.min.js?1759774806" defer></script>
     <!-- END DEMO SCRIPTS -->
-
-    <script src="https://scripts.tabler.io/banner.js" defer data-tblr-ref="tabler-preview-top-banner"></script>
-
     <!-- BEGIN PAGE SCRIPTS -->
-
     <!-- END PAGE SCRIPTS -->
 
-    <script src="assets/layout.js"></script>
-    <script src="assets/staticassets.js"></script>
 
-    <script>
-        const API_URL = 'https://script.google.com/macros/s/AKfycbxY5x3Ixl0vcAmaj2LN0UfOml9ZTXrQTn_3vfFdNmHs-N_9o7wmlDvoy2WUSHwvF1yM/exec';
 
-        async function loadParticipants() {
-            const response = await fetch(API_URL + "?action=list");
-            const result = await response.json();
+    <script src="/assets/layout/body.js"></script>
+    <script src="/assets/config.js" defer></script>
+    <script src="/assets/api.js" defer></script>
+    <script src="/assets/pageloader.js" defer></script>
+    <script src="/assets/toast.js" defer></script>
+    <script src="/pages/participant/list.js"></script>
 
-            if (!result.ok) {
-                throw new Error('خطا در دریافت اطلاعات');
-            }
+    <!-- BEGIN Layout -->
+    <!-- End Layout -->
 
-            return result.data;
-        }
-        function getParticipantEditUrl(participant) {
-            return (
-                "/Participant/create.html?id=" +
-                encodeURIComponent(participant.id)
-            );
-        }
-
-        function renderParticipantsTable(items) {
-            const tbody = document.getElementById('participants-table-body');
-
-            if (!items || items.length === 0) {
-                tbody.innerHTML = `
-                      <tr>
-                        <td colspan="3">داده‌ای وجود ندارد</td>
-                      </tr>
-                    `;
-                return;
-            }
-
-            tbody.innerHTML = items.map(item => `
-                    <tr>
-                    <td data-label="Name">
-                    <div class="d-flex py-1 align-items-center">
-                        <span class="avatar avatar-2xl me-2" style="background-image: url(https://lh3.googleusercontent.com/d/${item['imageUrl'] ?? ''})"> </span>
-                        <div class="flex-fill">
-                            <div class="font-weight-medium">Thatcher Keel</div>
-                            <div class="text-secondary"><a href="#" class="text-reset"><span class="__cf_email__" data-cfemail="8efae5ebebe2e8ceece2e1e9e9ebfca0ede1e3">[email&#160;protected]</span></a></div>
-                        </div>
-                    </div>
-</td>
-                      <td>${item['fullName'] ?? ''}
-                       <a href="${getParticipantEditUrl(item) }" class="btn btn-sm btn-outline-primary">
-        ویرایش
-    </a>
-                      
-                      </td>
-                      <td>${item['موبایل'] ?? ''}</td>
-                      <td>${item['شهر'] ?? ''}</td>
-                    </tr>
-                  `).join('');
-        }
-
-        async function initPage() {
-            try {
-                const participants = await loadParticipants();
-                renderParticipantsTable(participants);
-            } catch (error) {
-                console.error(error);
-            }
-        }
-
-        initPage();
-
-    </script>
 </body>
 </html>

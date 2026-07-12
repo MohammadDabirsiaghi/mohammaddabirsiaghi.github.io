@@ -1,0 +1,89 @@
+﻿input, textarea {
+    border: 1.5px solid #cbd5e1 !important;
+    background: #f8fafc !important;
+    color: #0f172a !important;
+}
+
+body {
+    font-family: Vazirmatn, sans-serif !important;
+}
+
+.page-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    width: 100%;
+    height: 100%;
+    /* محتویات صفحه همچنان قابل مشاهده است */
+    background: rgba(255, 255, 255, 0.42);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    cursor: wait;
+}
+
+.page-loader .page {
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* کارت کوچک Loader در مرکز صفحه */
+.page-loader .container-slim {
+    max-width: 360px;
+    padding: 1.5rem;
+    border: 1px solid var(--tblr-border-color, #dce1e7);
+    border-radius: var(--tblr-border-radius-lg, 10px);
+    background: var(--tblr-bg-surface, #fff);
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.16);
+}
+
+body.page-is-loading {
+    overflow: hidden;
+}
+
+
+#toast-container {
+    z-index: 100000;
+    width: min(calc(100% - 1.5rem), 390px);
+    pointer-events: none;
+}
+
+#toast-container .toast {
+    display: block;
+    width: 100%;
+    margin-top: 0.75rem;
+    pointer-events: auto;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+    box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.16);
+}
+
+    #toast-container .toast.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    #toast-container .toast.hide {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+#toast-container .toast-body {
+    line-height: 1.8;
+}
+
+#toast-container .toast-message {
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 575.98px) {
+    #toast-container {
+        width: 100%;
+        padding: 0.75rem !important;
+    }
+}
+
+#toast-container {
+    left: 0 !important;
+    right: auto !important;
+}

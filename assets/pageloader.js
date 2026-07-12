@@ -1,25 +1,25 @@
-﻿let activePageRequests = 0;
-let pageLoaderHintTimer = null;
-
-const PAGE_LOADER_DEFAULTS = {
+﻿const PAGE_LOADER_DEFAULTS = {
     title: "لطفاً صبر کنید",
     message: "در حال پردازش درخواست...",
-    hint: "اگر این عملیات کمی زمان برد، لطفاً صفحه را نبندید.",
-    hintDelay: 4000
+    hint: "اگر این عملیات کمی زمان برد، لطفاً صفحه را نبندید."
 };
 
+function getPageLoaderElements() {
+    return {
+        loader: document.getElementById("page-loader"),
+        titleElement: document.getElementById("page-loader-title"),
+        messageElement: document.getElementById("page-loader-message"),
+        hintElement: document.getElementById("page-loader-hint")
+    };
+}
+
 function showPageLoader(options = {}) {
-    const loader = document.getElementById("page-loader");
-    const titleElement = document.getElementById("page-loader-title");
-    const messageElement = document.getElementById("page-loader-message");
-    const hintElement = document.getElementById("page-loader-hint");
+    const { loader, titleElement, messageElement, hintElement } = getPageLoaderElements();
 
     const settings = {
         ...PAGE_LOADER_DEFAULTS,
         ...options
     };
-
-    activePageRequests += 1;
 
     if (titleElement) {
         titleElement.textContent = settings.title;
@@ -31,7 +31,7 @@ function showPageLoader(options = {}) {
 
     if (hintElement) {
         hintElement.textContent = settings.hint;
-        hintElement.classList.add("d-none");
+        hintElement.classList.remove("d-none");
     }
 
     if (loader) {
@@ -41,32 +41,10 @@ function showPageLoader(options = {}) {
     }
 
     document.body.classList.add("page-is-loading");
-
-    clearTimeout(pageLoaderHintTimer);
-
-    pageLoaderHintTimer = setTimeout(function () {
-        if (activePageRequests > 0 && hintElement) {
-            hintElement.classList.remove("d-none");
-        }
-    }, settings.hintDelay);
 }
 
-function hidePageLoader(force = false) {
-    const loader = document.getElementById("page-loader");
-    const hintElement = document.getElementById("page-loader-hint");
-
-    if (force) {
-        activePageRequests = 0;
-    } else {
-        activePageRequests = Math.max(0, activePageRequests - 1);
-    }
-
-    if (activePageRequests > 0) {
-        return;
-    }
-
-    clearTimeout(pageLoaderHintTimer);
-    pageLoaderHintTimer = null;
+function hidePageLoader() {
+    const { loader, hintElement } = getPageLoaderElements();
 
     if (hintElement) {
         hintElement.classList.add("d-none");
@@ -82,19 +60,17 @@ function hidePageLoader(force = false) {
 }
 
 function updatePageLoader(options = {}) {
-    const titleElement = document.getElementById("page-loader-title");
-    const messageElement = document.getElementById("page-loader-message");
-    const hintElement = document.getElementById("page-loader-hint");
+    const { titleElement, messageElement, hintElement } = getPageLoaderElements();
 
-    if (options.title && titleElement) {
+    if (typeof options.title === "string" && titleElement) {
         titleElement.textContent = options.title;
     }
 
-    if (options.message && messageElement) {
+    if (typeof options.message === "string" && messageElement) {
         messageElement.textContent = options.message;
     }
 
-    if (options.hint && hintElement) {
+    if (typeof options.hint === "string" && hintElement) {
         hintElement.textContent = options.hint;
     }
 }

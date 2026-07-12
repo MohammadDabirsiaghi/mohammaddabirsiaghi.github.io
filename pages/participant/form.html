@@ -1,219 +1,42 @@
 <!doctype html>
-<html lang="fa" dir="rtl">
+<html lang="fa" dir="rtl" data-page-title="لیست ">
 <head>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title></title>
 
-    <meta name="msapplication-TileColor" content="#066fd1" />
-    <meta name="theme-color" content="#066fd1" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="MobileOptimized" content="320" />
-
-    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
-
-    <meta name="description" content="" />
-    <meta name="canonical" content="" />
-    <meta name="twitter:image:src" content="" />
-    <meta name="twitter:site" content="" />
-    <meta name="twitter:card" content="" />
-    <meta name="twitter:title" content="" />
-    <meta name="twitter:description" content="" />
-
-    <meta property="og:image" content="" />
-    <meta property="og:image:width" content="1280" />
-    <meta property="og:image:height" content="640" />
-    <meta property="og:site_name" content="" />
-    <meta property="og:type" content="object" />
-    <meta property="og:title" content="" />
-    <meta property="og:url" content="" />
-    <meta property="og:description" content="" />
-
-    <!-- BEGIN PAGE LEVEL STYLES -->
-    <link href="/dist/libs/jsvectormap/dist/jsvectormap.css" rel="stylesheet" />
-    <link href="/dist/libs/dropzone/dist/dropzone.css" rel="stylesheet" />
-    <!-- END PAGE LEVEL STYLES -->
+    <script src="/assets/layout/header.js" defer></script>
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
-    <div id="layout-global-mandatory-styles"></div>
     <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN CUSTOM FONT -->
+    <!-- END CUSTOM FONT -->
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <!-- END PAGE LEVEL STYLES -->
     <!-- BEGIN PLUGINS STYLES -->
-    <link href="/dist/css/tabler-flags.rtl.min.css" rel="stylesheet" integrity="sha384-Q/h6koANGclsGnwB8rvF8h84H54NKHDeNWFj6yiE4WLLEXyHcz+Zu6Afkh2ssYTC" />
-    <link href="/dist/css/tabler-socials.rtl.min.css?1759774806" rel="stylesheet" integrity="sha384-yobKDIyTOxB1z7t/uZ2ImuXrcKWF24vDYg2vR1n7x2msF09iWnvyIxQtfEl9+OFl" />
-    <link href="/dist/css/tabler-payments.rtl.min.css?1759774806" rel="stylesheet" integrity="sha384-69CxgA+uEPtM07SLA8MMAdnBmwtVGndDJf8nIPdfvNrDayBfPqOK3wS3nvV5yyk+" />
-    <link href="/dist/css/tabler-vendors.rtl.min.css?1759774806" rel="stylesheet" integrity="sha384-V555LUGE2xyN4wNbzdVMgsajsKmJdlLFm20Ws72jEyPiSsTXXITV0PebNzVeBjnb" />
-    <link href="/dist/css/tabler-marketing.rtl.min.css?1759774806" rel="stylesheet" integrity="sha384-c6gNhuNYjp+lqluSdArbL8ciLEBq7IVU00XnPM2Eogj8RAjMapccvOM/pGhk3vV6" />
-    <link href="/dist/css/tabler-themes.rtl.min.css?1759774806" rel="stylesheet" integrity="sha384-WTp4aZ+OGqnkNR6Xe0sJwwfd0JHGq3dZTLU2ITKxTK2zjcJTBUMY/+Z4eXgm8ipF" />
     <!-- END PLUGINS STYLES -->
     <!-- BEGIN DEMO STYLES -->
-    <link href="/preview/css/demo.min.css?1759774806" rel="stylesheet" integrity="sha384-BUDq2P684xwRBf0GDlySvob+KJg4ko8y2K7njgvYBscmEuqoVVqJ75zcTDozwkFA" />
     <!-- END DEMO STYLES -->
-    <!-- BEGIN CUSTOM FONT -->
-    <style>
-        @import url("https://rsms.me/inter/inter.css");
-    </style>
-    <link href="/fonts/vazirmatn/Vazirmatn-font-face.css" rel="stylesheet" />
 
-    <!-- END CUSTOM FONT -->
-    <style>
-        input, textarea {
-            border: 1.5px solid #cbd5e1 !important;
-            background: #f8fafc !important;
-            color: #0f172a !important;
-        }
-        body {
-            font-family: Vazirmatn, sans-serif;
-        }
-
-
-       
-
-    </style>
-    <style>
-        .page-loader {
-            position: fixed;
-            inset: 0;
-            z-index: 99999;
-            width: 100%;
-            height: 100%;
-            /* محتویات صفحه همچنان قابل مشاهده است */
-            background: rgba(255, 255, 255, 0.42);
-            backdrop-filter: blur(1px);
-            -webkit-backdrop-filter: blur(1px);
-            cursor: wait;
-        }
-
-            .page-loader .page {
-                width: 100%;
-                min-height: 100vh;
-            }
-
-            /* کارت کوچک Loader در مرکز صفحه */
-            .page-loader .container-slim {
-                max-width: 360px;
-                padding: 1.5rem;
-                border: 1px solid var(--tblr-border-color, #dce1e7);
-                border-radius: var(--tblr-border-radius-lg, 10px);
-                background: var(--tblr-bg-surface, #fff);
-                box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.16);
-            }
-
-        body.page-is-loading {
-            overflow: hidden;
-        }
-
-    </style>
-    <style>
-        #toast-container {
-            z-index: 100000;
-            width: min(calc(100% - 1.5rem), 390px);
-            pointer-events: none;
-        }
-
-            #toast-container .toast {
-                display: block;
-                width: 100%;
-                margin-top: 0.75rem;
-                pointer-events: auto;
-                opacity: 0;
-                transform: translateY(20px);
-                transition: opacity 0.65s ease, transform 0.65s ease;
-                box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.16);
-            }
-
-                #toast-container .toast.show {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-
-                #toast-container .toast.hide {
-                    opacity: 0;
-                    transform: translateY(20px);
-                }
-
-            #toast-container .toast-body {
-                line-height: 1.8;
-            }
-
-            #toast-container .toast-message {
-                overflow-wrap: anywhere;
-            }
-
-        @media (max-width: 575.98px) {
-            #toast-container {
-                width: 100%;
-                padding: 0.75rem !important;
-            }
-        }
-        #toast-container {
-            left: 0 !important;
-            right: auto !important;
-        }
-
-    </style>
 </head>
-<body>
-    <div id="toast-container"
-         class="toast-container position-fixed bottom-0 start-0 p-3"
-         aria-live="polite"
-         aria-atomic="false"></div>
+<body class="layout-fluid" data-page="participant-form">
+    <div id="layout-body-toast-container"></div>
+    <div id="layout-body-loader"></div>
 
-    <div id="page-loader"
-         class="page-loader d-none"
-         role="status"
-         aria-live="polite"
-         aria-busy="true"
-         aria-hidden="true">
-        <div class="page page-center">
-            <div class="container container-slim py-4">
-                <div class="text-center">
-
-                    <div class="mb-4">
-                        <span class="avatar avatar-xl bg-primary-lt">
-                            <span class="spinner-border text-primary"
-                                  role="status"
-                                  aria-hidden="true"></span>
-                        </span>
-                    </div>
-
-                    <h3 id="page-loader-title" class="mb-2">
-                        لطفاً صبر کنید
-                    </h3>
-
-                    <div id="page-loader-message" class="text-secondary mb-3">
-                        در حال پردازش درخواست...
-                    </div>
-
-                    <div class="progress progress-sm mb-3">
-                        <div class="progress-bar progress-bar-indeterminate"></div>
-                    </div>
-
-                    <div id="page-loader-hint"
-                         class="text-secondary small d-none">
-                        اگر این عملیات کمی زمان برد، لطفاً صفحه را نبندید.
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
 
 
     <!-- BEGIN GLOBAL THEME SCRIPT -->
-    <script src="/dist/js/tabler-theme.min.js?1759774806" integrity="sha384-SoDJmj40r6f9Rfxi6Fq+bNS8ofhlZMyxHk9dq9Y8e1M17PZGkBRN/XUpx8swn0i5"></script>
+    <div id="layout-body-global-theme-script"></div>
     <!-- END GLOBAL THEME SCRIPT -->
+
     <div class="page">
 
         <!-- BEGIN NAVBAR  -->
-        <div id="layout-sidebar"></div>
+        <div id="layout-body-navbar"></div>
         <!-- END NAVBAR  -->
         <div class="page-wrapper">
             <!-- BEGIN PAGE HEADER -->
-            <div id="layout-page-header" data-title="افزودن شرکت کننده"></div>
+            <div id="layout-body-page-header" data-title="درج شرکت کننده"></div>
             <!-- END PAGE HEADER -->
             <!-- BEGIN PAGE BODY -->
             <div class="page-body">
@@ -221,7 +44,18 @@
                     <!-- Content here -->
                     <form id="participant-form" novalidate>
                         <!-- برای حالت ویرایش -->
-                        <input type="hidden" id="participantId" name="participantId">
+                        <input type="hidden"
+                               id="participantId"
+                               name="participantId">
+
+                        <input type="hidden"
+                               id="currentPhotoUrl"
+                               name="currentPhotoUrl">
+
+                        <input type="hidden"
+                               id="removePhoto"
+                               name="removePhoto"
+                               value="false">
                         <div class="col-12">
                             <div id="form-message" class="alert d-none"></div>
                         </div>
@@ -337,8 +171,39 @@
 
                                                         </div>
                                                         <div class="col-sm-6 col-md-4">
-                                                            <label class="form-label">عکس</label>
 
+                                                            <input type="file"
+                                                                   id="participant-photo"
+                                                                   class="form-control"
+                                                                   accept="image/*">
+
+                                                            <div id="current-photo-wrapper"
+                                                                 class="d-none">
+                                                                <img id="current-photo"
+                                                                     alt="تصویر فعلی"
+                                                                     width="120">
+
+                                                                <button type="button"
+                                                                        id="remove-photo-btn"
+                                                                        class="btn btn-outline-danger">
+                                                                    حذف تصویر
+                                                                </button>
+                                                            </div>
+
+                                                            <div id="new-photo-wrapper"
+                                                                 class="d-none">
+                                                                <img id="new-photo-preview"
+                                                                     alt="پیش‌نمایش تصویر جدید"
+                                                                     width="120">
+                                                            </div>
+
+
+
+                                                            <hr />
+                                                            <label class="form-label">عکس</label>
+                                                            <div id="participant-photo-dropzone"
+                                                                 class="dropzone">
+                                                            </div>
                                                             <div id="photo-dropzone" class="dropzone">
                                                                 <div class="dz-message">
                                                                     <strong>عکس را انتخاب کنید یا اینجا رها کنید</strong>
@@ -546,7 +411,7 @@
 
             <!-- END PAGE BODY -->
             <!--  BEGIN FOOTER  -->
-            <div id="layout-footer"></div>
+            <div id="layout-body-footer"></div>
 
             <!--  END FOOTER  -->
         </div>
@@ -554,75 +419,27 @@
     <!-- BEGIN PAGE MODALS -->
     <!-- END PAGE MODALS -->
     <!-- BEGIN PAGE LIBRARIES -->
-    <script src="/dist/libs/dropzone/dist/dropzone-min.js" defer></script>
-    <script src="/dist/libs/apexcharts/dist/apexcharts.min.js?1759774806" defer></script>
-    <script src="/dist/libs/jsvectormap/dist/jsvectormap.min.js?1759774806" defer></script>
-    <script src="/dist/libs/jsvectormap/dist/maps/world.js?1759774806" defer></script>
-    <script src="/dist/libs/jsvectormap/dist/maps/world-merc.js?1759774806" defer></script>
     <!-- END PAGE LIBRARIES -->
     <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
-    <script src="/dist/js/tabler.min.js?1759774806" defer integrity="sha384-pku3birjgGovaJ9ngF7SaxKkF/eYUvBjiMJ+jTtWbNesIj2Rud2K63+4JD7EF4gk"></script>
+
+
+    <script src="/dist/js/tabler.min.js" defer></script>
     <!-- END GLOBAL MANDATORY SCRIPTS -->
     <!-- BEGIN DEMO SCRIPTS -->
-    <script src="/preview/js/demo.min.js?1759774806" defer></script>
     <!-- END DEMO SCRIPTS -->
-
-    <script src="https://scripts.tabler.io/banner.js" defer data-tblr-ref="tabler-preview-top-banner"></script>
-
     <!-- BEGIN PAGE SCRIPTS -->
     <!-- END PAGE SCRIPTS -->
 
-    <script src="/assets/layout.js"></script>
-    <script src="/assets/staticassets.js"></script>
-    <script src="/assets/participant-form.js"></script>
-    <script src="/assets/pageloader.js"></script>
-    <script src="/assets/toast.js"></script>
-    <!--<script>
-        const API_URL = 'https://script.google.com/macros/s/AKfycbyf7z1uI-opyLdPDpxU5pFU8H9u25Rm0qs4zPm_FKBrrAVYHNxV451nkO3gPoC0sPYy/exec';
 
-        async function loadParticipants() {
-            const response = await fetch(API_URL);
-            const result = await response.json();
 
-            if (!result.ok) {
-                throw new Error('خطا در دریافت اطلاعات');
-            }
+    <script src="/assets/layout/body.js"></script>
+    <script src="/assets/config.js" defer></script>
+    <script src="/assets/api.js" defer></script>
+    <script src="/assets/pageloader.js" defer></script>
+    <script src="/assets/toast.js" defer></script>
+    <script src="/pages/participant/form.js"></script>
 
-            return result.data;
-        }
-
-        function renderParticipantsTable(items) {
-            const tbody = document.getElementById('participants-table-body');
-
-            if (!items || items.length === 0) {
-                tbody.innerHTML = `
-                                                                  <tr>
-                                                                    <td colspan="3">داده‌ای وجود ندارد</td>
-                                                                  </tr>
-                                                                `;
-                return;
-            }
-
-            tbody.innerHTML = items.map(item => `
-                                                                <tr>
-                                                                  <td>${item['FullName'] ?? ''}</td>
-                                                                  <td>${item['موبایل'] ?? ''}</td>
-                                                                  <td>${item['شهر'] ?? ''}</td>
-                                                                </tr>
-                                                              `).join('');
-        }
-
-        async function initPage() {
-            try {
-                const participants = await loadParticipants();
-                renderParticipantsTable(participants);
-            } catch (error) {
-                console.error(error);
-            }
-        }
-
-        initPage();
-
-    </script>-->
+    <!-- BEGIN Layout -->
+    <!-- End Layout -->
 </body>
 </html>
