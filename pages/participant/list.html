@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fa" dir="rtl"  data-page-title="لیست ">
+<html lang="fa" dir="rtl" data-page-title="لیست ">
 <head>
 
     <meta charset="utf-8" />
@@ -9,74 +9,66 @@
     <script src="/assets/layout/header.js" defer></script>
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
     <!-- END GLOBAL MANDATORY STYLES -->
-
     <!-- BEGIN CUSTOM FONT -->
     <!-- END CUSTOM FONT -->
-
-
     <!-- BEGIN PAGE LEVEL STYLES -->
     <!-- END PAGE LEVEL STYLES -->
-
-
     <!-- BEGIN PLUGINS STYLES -->
     <!-- END PLUGINS STYLES -->
-
-
     <!-- BEGIN DEMO STYLES -->
     <!-- END DEMO STYLES -->
-   <style>
-       #pagination {
-           display: flex;
-           flex-wrap: wrap;
-           align-items: center;
-           justify-content: center;
-           gap: 0.5rem;
-           margin-top: 1rem;
-       }
+    <style>
+        #pagination {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
 
-           #pagination button {
-               min-width: 40px;
-               height: 40px;
-               padding: 0 12px;
-               border: 1px solid #d0d7de;
-               border-radius: 10px;
-               background: #fff;
-               color: #333;
-               font-size: 14px;
-               line-height: 1;
-               cursor: pointer;
-               transition: all 0.2s ease;
-           }
+            #pagination button {
+                min-width: 40px;
+                height: 40px;
+                padding: 0 12px;
+                border: 1px solid #d0d7de;
+                border-radius: 10px;
+                background: #fff;
+                color: #333;
+                font-size: 14px;
+                line-height: 1;
+                cursor: pointer;
+                transition: all 0.2s ease;
+            }
 
-               #pagination button:hover:not(:disabled) {
-                   border-color: #0d6efd;
-                   color: #0d6efd;
-                   background: #f8fbff;
-               }
+                #pagination button:hover:not(:disabled) {
+                    border-color: #0d6efd;
+                    color: #0d6efd;
+                    background: #f8fbff;
+                }
 
-               #pagination button.active {
-                   background: #0d6efd;
-                   border-color: #0d6efd;
-                   color: #fff;
-                   font-weight: 600;
-               }
+                #pagination button.active {
+                    background: #0d6efd;
+                    border-color: #0d6efd;
+                    color: #fff;
+                    font-weight: 600;
+                }
 
-               #pagination button:disabled {
-                   opacity: 0.5;
-                   cursor: not-allowed;
-                   background: #f5f5f5;
-               }
+                #pagination button:disabled {
+                    opacity: 0.5;
+                    cursor: not-allowed;
+                    background: #f5f5f5;
+                }
 
-           #pagination .pagination-ellipsis {
-               display: inline-flex;
-               align-items: center;
-               justify-content: center;
-               min-width: 24px;
-               color: #888;
-               font-size: 14px;
-           }
-
-   </style>
+            #pagination .pagination-ellipsis {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                min-width: 24px;
+                color: #888;
+                font-size: 14px;
+            }
+    </style>
     <style>
         /* استایل‌های مربوط به تصویر و حالت بارگذاری (Skeleton Loading) */
         .participant-avatar-wrapper {
@@ -245,22 +237,28 @@
                     </div>
 
 
-            
 
 
+                    <div class="card mt-3">
+                        <div class="card-body">
+
+                            <div id="participants-list"
+                                 class="list-group list-group-flush">
+                            </div>
+
+                            <div id="participants-empty"
+                                 class="card-body text-center text-secondary d-none">
+                                شرکت‌کننده‌ای یافت نشد.
+                            </div>
+
+                        </div>
+
+                        <div class="card-footer">
+                            <div id="pagination"></div>
 
 
-                    <div id="participants-list"
-                         class="list-group list-group-flush">
+                        </div>
                     </div>
-
-                    <div id="participants-empty"
-                         class="card-body text-center text-secondary d-none">
-                        شرکت‌کننده‌ای یافت نشد.
-                    </div>
-                    <div id="pagination"></div>
-                    
-
                 </div>
             </div>
             <!-- END PAGE BODY -->

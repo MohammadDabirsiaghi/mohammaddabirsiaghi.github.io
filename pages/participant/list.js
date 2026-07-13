@@ -323,18 +323,13 @@
         return null;
     }
     function renderParticipants(participants) {
-        const container =
-            document.getElementById("participants-list");
-        const emptyState =
-            document.getElementById("participants-empty");
-
-        if (!container) {
-            return;
-        }
+        const container = document.getElementById("participants-list");
+        const emptyState = document.getElementById("participants-empty");
+        if (!container) return;
 
         container.replaceChildren();
 
-        if (!participants.length) {
+        if (!participants || !participants.length) {
             emptyState?.classList.remove("d-none");
             return;
         }
@@ -342,15 +337,103 @@
         emptyState?.classList.add("d-none");
 
         const fragment = document.createDocumentFragment();
-
-        participants.forEach(function (participant) {
-            fragment.appendChild(
-                createParticipantItem(participant)
-            );
-        });
-
+        participants.forEach(p => fragment.appendChild(createParticipantItem(p)));
         container.appendChild(fragment);
     }
+
+    function createParticipantItem(participant) {
+        const item = document.createElement("div");
+        item.className = "list-group-item";
+
+        // ردیف اصلی
+        const row = document.createElement("div");
+        row.className = "d-flex align-items-center gap-3";
+
+        // آواتار
+        const avatar = document.createElement("span");
+        avatar.className = "avatar avatar-md flex-shrink-0";
+
+        if (participant.photoFileId) {
+            avatar.classList.add("image-loading-placeholder");
+            avatar.setAttribute("data-file-id", participant.photoFileId);
+            avatar.setAttribute("data-updated-at", participant.updatedAt || "v1");
+            lazyImageLoader.observe(avatar);
+        } else {
+            avatar.textContent = getInitials(participant.fullName);
+            avatar.classList.add("bg-blue-lt");
+        }
+
+        // محتوا (min-width:0 برای ریسپانسیو)
+        const content = document.createElement("div");
+        content.className = "participant-content flex-fill";
+
+        // عنوان
+        const titleRow = document.createElement("div");
+        titleRow.className = "d-flex align-items-center gap-2";
+
+        const name = document.createElement("div");
+        name.className = "participant-title fw-bold";
+        name.textContent = participant.fullName || "بدون نام";
+
+        titleRow.appendChild(name);
+
+        // اگر شرکت دارد
+        if (participant.companyName) {
+            const company = document.createElement("span");
+            company.className = "text-secondary small participant-title";
+            company.textContent = participant.companyName;
+            titleRow.appendChild(company);
+        }
+
+        // متا (شهر/استان/موبایل/پروژه‌ها)
+        const meta = document.createElement("div");
+        meta.className = "participant-meta text-secondary small mt-1";
+
+        const addMeta = (text) => {
+            if (!text) return;
+            const span = document.createElement("span");
+            span.className = "participant-subtitle";
+            span.textContent = text;
+            meta.appendChild(span);
+        };
+
+        addMeta(participant.mobile1);
+        addMeta([participant.province, participant.city].filter(Boolean).join("، "));
+
+        if (participant.exportProject) {
+            const b = document.createElement("span");
+            b.className = "badge bg-green-lt";
+            b.textContent = `صادرات: ${participant.exportProject}`;
+            meta.appendChild(b);
+        }
+
+        if (participant.importProject) {
+            const b = document.createElement("span");
+            b.className = "badge bg-orange-lt";
+            b.textContent = `واردات: ${participant.importProject}`;
+            meta.appendChild(b);
+        }
+
+        content.append(titleRow, meta);
+
+        // اکشن‌ها
+        const actions = document.createElement("div");
+        actions.className = "ms-auto flex-shrink-0";
+
+        const editLink = document.createElement("a");
+        editLink.className = "btn btn-sm btn-outline-primary";
+        editLink.textContent = "ویرایش";
+        editLink.href =
+            "/pages/participant/form.html?id=" + encodeURIComponent(participant.id || "");
+
+        actions.appendChild(editLink);
+
+        row.append(avatar, content, actions);
+        item.appendChild(row);
+
+        return item;
+    }
+
     let currentPage = 1;
     let currentPageSize = 20;
 
@@ -443,63 +526,7 @@
         }
     }
 
-    function createParticipantItem(participant) {
-        const item = document.createElement("div");
-        const avatar = document.createElement("span");
-        const content = document.createElement("div");
-        const name = document.createElement("div");
-        const details = document.createElement("div");
-        const actions = document.createElement("div");
-        const editLink = document.createElement("a");
 
-        item.className =
-            "list-group-item d-flex align-items-center gap-3";
-
-        avatar.className = "avatar avatar-2xl";
-
-        // اگر تصویر داشت، لودر تنبل را فعال می‌کنیم
-        if (participant.photoFileId) {
-     
-            avatar.classList.add('image-loading-placeholder');
-            avatar.setAttribute('data-file-id', participant.photoFileId);
-            avatar.setAttribute('data-updated-at', participant.updatedAt || 'v1');
-            lazyImageLoader.observe(avatar);
-        } else {
-            avatar.textContent = getInitials(participant.fullName);
-            avatar.style.backgroundColor = "#f0f2f5";
-        }
-
-        content.className = "flex-fill";
-        name.className = "fw-bold";
-        details.className = "text-secondary small";
-        actions.className = "ms-auto";
-        editLink.className =
-            "btn btn-sm btn-outline-primary";
-
-        name.textContent =
-            participant.fullName || "بدون نام";
-
-        details.textContent = [
-            participant.mobile1,
-            participant.province,
-            participant.city
-        ]
-            .filter(Boolean)
-            .join(" - ");
-
-        editLink.textContent = "ویرایش";
-        editLink.href =
-            "/pages/participant/form.html?id=" +
-            encodeURIComponent(
-                participant.id || ""
-            );
-
-        content.append(name, details);
-        actions.appendChild(editLink);
-        item.append(avatar, content, actions);
-
-        return item;
-    }
 
     function updateResultCount(total) {
         const resultCount =
