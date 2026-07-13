@@ -145,6 +145,7 @@
     }
 
     function handleFilters() {
+      
         state.filters = {
             search: getInputValue([
                 "filter-full-name",
@@ -211,7 +212,7 @@
                 ? "در حال جست‌وجوی شرکت‌کنندگان..."
                 : "در حال دریافت فهرست شرکت‌کنندگان..."
         });
-
+    
         try {
             const result = await window.ApiClient.get({
                 action: "getParticipants",
@@ -231,6 +232,7 @@
         
             const data = result.data || {};
             const participants = data.items || [];
+            renderFilterOptions(data.filterOptions);
             renderParticipants(participants);
             renderPagination(data.pagination || {});
             updateResultCount(participants.length);
@@ -255,7 +257,71 @@
             }
         }
     }
+    function renderFilterOptions(options) {
+        fillSelectOptions(
+            ["province-filter", "participant-province-filter"],
+            options.provinces || [],
+            "همه استان‌ها"
+        );
 
+        fillSelectOptions(
+            ["city-filter", "participant-city-filter"],
+            options.cities || [],
+            "همه شهرها"
+        );
+
+        fillSelectOptions(
+            ["export-project-filter", "participant-export-filter"],
+            options.exportProjects || [],
+            "همه پروژه‌های صادرات"
+        );
+
+        fillSelectOptions(
+            ["import-project-filter", "participant-import-filter"],
+            options.importProjects || [],
+            "همه پروژه‌های واردات"
+        );
+    }
+    function fillSelectOptions(selectIds, items, placeholder) {
+        const select = findElementByIds(selectIds);
+        if (!select) return;
+
+        // ذخیره مقدار انتخاب‌شده فعلی کاربر
+        const currentValue = String(select.value || "").trim();
+        const fragment = document.createDocumentFragment();
+
+        // افزودن گزینه پیش‌فرض (مثل "همه استان‌ها")
+        const defaultOption = document.createElement("option");
+        defaultOption.value = "";
+        defaultOption.textContent = placeholder;
+        fragment.appendChild(defaultOption);
+
+        // افزودن گزینه‌های داینامیک دریافتی از سرور
+        items.forEach(function (item) {
+            const option = document.createElement("option");
+            option.value = item;
+            option.textContent = item;
+            fragment.appendChild(option);
+        });
+
+        // جایگزینی محتوای قدیمی با گزینه‌های جدید به صورت بهینه
+        select.replaceChildren(fragment);
+
+        // بررسی اینکه آیا مقدار قبلی انتخاب‌شده هنوز در لیست جدید وجود دارد یا خیر
+        const exists = Array.from(select.options).some(opt => opt.value === currentValue);
+        select.value = exists ? currentValue : "";
+    }
+
+    /**
+     * پیدا کردن عنصر در سند بر اساس فهرستی از شناسه‌ها (ID)
+     */
+    function findElementByIds(ids) {
+        for (const id of ids) {
+            const el = document.getElementById(id);
+            if (el) return el;
+        }
+        return null;
+    }
     function renderParticipants(participants) {
         const container =
             document.getElementById("participants-list");
@@ -389,7 +455,7 @@
         item.className =
             "list-group-item d-flex align-items-center gap-3";
 
-        avatar.className = "avatar";
+        avatar.className = "avatar avatar-2xl";
 
         // اگر تصویر داشت، لودر تنبل را فعال می‌کنیم
         if (participant.photoFileId) {

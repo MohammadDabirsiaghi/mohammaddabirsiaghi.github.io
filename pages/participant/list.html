@@ -147,7 +147,7 @@
                                     <div class="accordion" id="accordion-default">
                                         <div class="accordion-item">
                                             <div class="accordion-header">
-                                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-1-default" aria-expanded="true">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-1-default" aria-expanded="false">
                                                     جستجو
                                                     <div class="accordion-button-toggle">
                                                         <!-- Download SVG icon from http://tabler.io/icons/icon/chevron-down -->
@@ -166,53 +166,53 @@
                                                     </div>
                                                 </button>
                                             </div>
-                                            <div id="collapse-1-default" class="accordion-collapse collapse show" data-bs-parent="#accordion-default">
+                                            <div id="collapse-1-default" class="accordion-collapse collapse" data-bs-parent="#accordion-default">
                                                 <div class="accordion-body">
                                                     <div class="row g-3">
                                                         <div class="col-12 col-md-6 col-xl-4">
                                                             <label for="filter-full-name" class="form-label">
-                                                                نام و نام خانوادگی
+                                                                جستجو در همه
                                                             </label>
 
                                                             <input type="search"
                                                                    id="filter-full-name"
                                                                    class="form-control"
-                                                                   placeholder="نام و نام خانوادگی را وارد کنید"
+                                                                   placeholder="عبارت خود را وارد نمائید"
                                                                    autocomplete="off">
                                                         </div>
 
                                                         <div class="col-12 col-sm-6 col-md-3 col-xl-2">
-                                                            <label for="filter-province" class="form-label">استان</label>
+                                                            <label for="province-filter" class="form-label">استان</label>
 
-                                                            <select id="filter-province" class="form-select">
+                                                            <select id="province-filter" class="form-select">
                                                                 <option value="">همه استان‌ها</option>
                                                             </select>
                                                         </div>
 
                                                         <div class="col-12 col-sm-6 col-md-3 col-xl-2">
-                                                            <label for="filter-city" class="form-label">شهر</label>
+                                                            <label for="city-filter" class="form-label">شهر</label>
 
-                                                            <select id="filter-city" class="form-select">
+                                                            <select id="city-filter" class="form-select">
                                                                 <option value="">همه شهرها</option>
                                                             </select>
                                                         </div>
 
                                                         <div class="col-12 col-sm-6 col-xl-2">
-                                                            <label for="filter-export-project" class="form-label">
+                                                            <label for="export-project-filter" class="form-label">
                                                                 پروژه صادرات
                                                             </label>
 
-                                                            <select id="filter-export-project" class="form-select">
+                                                            <select id="export-project-filter" class="form-select">
                                                                 <option value="">همه پروژه‌های صادرات</option>
                                                             </select>
                                                         </div>
 
                                                         <div class="col-12 col-sm-6 col-xl-2">
-                                                            <label for="filter-import-project" class="form-label">
+                                                            <label for="import-project-filter" class="form-label">
                                                                 پروژه واردات
                                                             </label>
 
-                                                            <select id="filter-import-project" class="form-select">
+                                                            <select id="import-project-filter" class="form-select">
                                                                 <option value="">همه پروژه‌های واردات</option>
                                                             </select>
                                                         </div>
