@@ -1,6 +1,101 @@
 ﻿"use strict";
 
 (function () {
+
+    // --- ۱. سرویس کش تصاویر (IndexedDB) ---
+    const ImageCacheService = {
+        dbName: 'AppAssetsCache',
+        storeName: 'images',
+        version: 1,
+
+        initDB() {
+            return new Promise((resolve, reject) => {
+                const request = indexedDB.open(this.dbName, this.version);
+                request.onupgradeneeded = (e) => {
+                    const db = e.target.result;
+                    if (!db.objectStoreNames.contains(this.storeName)) {
+                        db.createObjectStore(this.storeName);
+                    }
+                };
+                request.onsuccess = () => resolve(request.result);
+                request.onerror = () => reject(request.error);
+            });
+        },
+
+        async get(key) {
+            try {
+                const db = await this.initDB();
+                return new Promise((resolve) => {
+                    const transaction = db.transaction(this.storeName, 'readonly');
+                    const store = transaction.objectStore(this.storeName);
+                    const request = store.get(key);
+                    request.onsuccess = () => resolve(request.result);
+                    request.onerror = () => resolve(null);
+                });
+            } catch (e) { return null; }
+        },
+
+        async set(key, value) {
+            try {
+                const db = await this.initDB();
+                const transaction = db.transaction(this.storeName, 'readwrite');
+                const store = transaction.objectStore(this.storeName);
+                store.put(value, key);
+            } catch (e) { }
+        }
+    };
+
+
+    // --- ۲. لودر هوشمند تصاویر ---
+    const lazyImageLoader = {
+        observer: null,
+        init() {
+            this.observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        this.loadImage(entry.target);
+                        this.observer.unobserve(entry.target);
+                    }
+                });
+            }, { rootMargin: '100px 0px', threshold: 0.01 });
+        },
+        observe(img) { if (this.observer) this.observer.observe(img); },
+        async loadImage(img) {
+            const fileId = img.getAttribute('data-file-id');
+            const updatedAt = img.getAttribute('data-updated-at') || 'v1';
+            if (!fileId) return;
+
+            const cacheKey = `photo_${fileId}_${updatedAt}`;
+            const cachedData = await ImageCacheService.get(cacheKey);
+
+            if (cachedData) {
+                img.style.backgroundImage = `url("${cachedData}")`;
+                img.classList.remove('image-loading-placeholder');
+                img.textContent = "";
+                return;
+            }
+
+            try {
+                // استفاده از ApiClient برای حفظ ساختار پروژه شما
+                const result = await window.ApiClient.get({
+                    action: "getPhotoBase64",
+                    fileId: fileId
+                });
+
+                if (result.ok && result.data.dataUrl) {
+                    const dataUrl = result.data.dataUrl;
+                    img.style.backgroundImage = `url("${dataUrl}")`;
+                    img.classList.remove('image-loading-placeholder');
+                    img.textContent = "";
+                    await ImageCacheService.set(cacheKey, dataUrl);
+                }
+            } catch (e) {
+                console.error("Lazy load failed", e);
+            }
+        }
+    };
+
+
     const state = {
         filters: {
             search: "",
@@ -19,6 +114,9 @@
     document.addEventListener("DOMContentLoaded", init);
 
     function init() {
+
+        lazyImageLoader.init();
+
         document
             .getElementById("search-participants")
             ?.addEventListener("click", handleFilters);
@@ -293,12 +391,16 @@
 
         avatar.className = "avatar";
 
-        if (participant.photoUrl) {
-            avatar.style.backgroundImage = `url("${participant.photoUrl}")`;
+        // اگر تصویر داشت، لودر تنبل را فعال می‌کنیم
+        if (participant.photoFileId) {
+     
+            avatar.classList.add('image-loading-placeholder');
+            avatar.setAttribute('data-file-id', participant.photoFileId);
+            avatar.setAttribute('data-updated-at', participant.updatedAt || 'v1');
+            lazyImageLoader.observe(avatar);
         } else {
-            avatar.textContent = getInitials(
-                participant.fullName
-            );
+            avatar.textContent = getInitials(participant.fullName);
+            avatar.style.backgroundColor = "#f0f2f5";
         }
 
         content.className = "flex-fill";
