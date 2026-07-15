@@ -456,19 +456,19 @@
         const mainBody = document.createElement("div");
         mainBody.className = "participant-main-body";
 
-        if (participant.exportProject) {
+        //if (participant.exportProject) {
             const exportRow = document.createElement("div");
             exportRow.className = "participant-project-row bg-green-lt text-green";
             exportRow.innerHTML = `<strong>پروژه صادرات :</strong> ${escapeHtml(participant.exportProject)}`;
             mainBody.appendChild(exportRow);
-        }
+        //}
 
-        if (participant.importProject) {
+       // if (participant.importProject) {
             const importRow = document.createElement("div");
             importRow.className = "participant-project-row bg-orange-lt text-orange";
             importRow.innerHTML = `<strong>پروژه واردات :</strong> ${escapeHtml(participant.importProject)}`;
             mainBody.appendChild(importRow);
-        }
+       // }
 
         const hasMoreInfo = Boolean(
             participant.shortBio ||

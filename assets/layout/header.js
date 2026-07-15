@@ -10,6 +10,10 @@
 
         document.title = title;
     }
+    function renderLayoutHeaderTitleByTitle(title) {
+
+        document.title = title;
+    }
     function renderLayoutHeaderFavIcon() {
 
         upsertHeadElement('link[rel="icon"]', "link", {

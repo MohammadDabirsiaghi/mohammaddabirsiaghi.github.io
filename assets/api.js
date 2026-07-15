@@ -116,6 +116,7 @@
      * { ok:true, status:'pending'|'done'|'error', message, data }
      */
     async function poll(params) {
+        debugger;
         const requestId = params?.requestId;
         const action = params?.action || "getRequestStatus";
         const intervalMs = Number(params?.intervalMs || 1200);
@@ -135,15 +136,29 @@
                 requestId: requestId
             });
 
-            // اگر backend فقط ok=true برمی‌گرداند، اینجا باید status را چک کنیم
-            const status = String(res.status || "").toLowerCase();
+            const payload = res?.data || {};
+            const status = String(payload.status || "").toLowerCase();
 
             if (status === "done") {
-                return res;
+                if (payload.result && payload.result.ok === false) {
+                    throw new Error(payload.result.message || "پردازش درخواست ناموفق بود.");
+                }
+
+                return payload.result || payload;
             }
 
             if (status === "error") {
-                throw new Error(res.message || "پردازش درخواست با خطا مواجه شد.");
+                throw new Error(payload.message || "پردازش درخواست با خطا مواجه شد.");
+            }
+            if (status === "failed") {
+                throw new Error(payload.result.message || "پردازش درخواست با خطا مواجه شد.");
+            }
+            if (status === "not_found") {
+                throw new Error("وضعیت درخواست پیدا نشد یا منقضی شده است.");
+            }
+
+            if (status === "invalid") {
+                throw new Error("داده ذخیره‌شده وضعیت درخواست نامعتبر است.");
             }
 
             // pending یا حالت نامشخص => ادامه polling
